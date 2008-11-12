@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require File.dirname(__FILE__) + '/../config/boot'
+
+Dir.chdir(RAILS_ROOT) do
+	begin
+		config = YAML.load(File.open('config/application.yml'))
+	rescue
+		puts "Configuration file (config/application.yml) not found."
+		puts "Run 'script/setup --only appyml' to create it. "
+		exit(1)
+	end
+	
+	# try and clear the cache
+	puts "Clearing cached files..."
+	require 'initializers/clear_cache'
+	extend ClearCacheHelper
+	clear_all_caches do |file|
+		puts " * #{file}"
+	end
+	puts "Done"
+
+	if config[:server] == 'mongrel'
+		# Mongrel
+		puts "Configured for Mongrel."
+		if File.exist?('tmp/pids/mongrel.pid')
+			puts "Stopping Mongrel..."
+			pid = File.read('tmp/pids/mongrel.pid')
+			system("kill #{pid}")
+			while(File.exist?('tmp/pids/mongrel.pid')) do
+				sleep(1)
+			end
+			puts "Done"
+		else
+			puts "Mongrel PID file 'tmp/pids/mongrel.pid' not found - assuming it's stopped."
+		end
+	else
+		puts "Configured for Phusion Passenger."
+	end
+	
+	if File.exist?('script/backgroundrb')
+		puts "Stopping BackgrounDRb..."
+		system("script/backgroundrb stop")
+		system("script/backgroundrb stop")
+		puts "Removing stale BackgrounDRb PID files..."
+		FileUtils.rm_rf(File.join(RAILS_ROOT, 'tmp/pids/backgroundrb*')) rescue nil
+		puts "Starting BackgrounDRb..."
+		system("script/backgroundrb start")
+		puts "Done"
+	end
+
+	if File.exist?('vendor/plugins/asset_packager')
+		puts "Repackaging the assets..."
+		system("rake --silent asset:packager:delete_all")
+		system("rake --silent asset:packager:build_all")
+		puts "Done"
+	end
+	
+	if config[:server] == 'mongrel'
+		puts "Restarting Mongrel..."
+		system("script/server -p #{config[:port]} -e #{config[:environment]} -d")
+		puts "Done"
+	else
+		# Passenger
+		puts "Restarting via Passenger..."
+		File.open('tmp/restart.txt', 'w') do |file|
+			file.puts ''
+		end
+		puts "Done"
+	end
+end

@@ -1,0 +1,18 @@
+#singleBox div {background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content/back_boxie6.png', sizingMethod='crop');}
+#doubleBox div.contentCMS,
+#doubleBox div.gallery {margin-left:-1px;background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content/back_boxie6.png', sizingMethod='crop');}
+
+#doubleBox #menuLeft ul {background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content/back_boxie6.png', sizingMethod='crop');}
+#doubleBox #menuLeft ul ul {background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/spacer.gif', sizingMethod='crop');}
+#doubleBox #menuLeft img {margin-left:0;}
+
+#doubleBox img {margin-left:-4px;}
+
+#singleBox #contact form {float:left;margin-right:0;padding-right:20px;border-right:solid 1px #6E2301;}
+#singleBox #contact ul  {float:right;margin:10px 0 10px 40px;}
+#singleBox #contact h1 img,
+#singleBox #contact h2 img {float:none;}
+#singleBox #contact h2 img {margin-left:20px;}
+#singleBox #contact img {float:right;}
+
+#doubleBox #galleryMenu {background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content/back_boxie6.png', sizingMethod='crop');}

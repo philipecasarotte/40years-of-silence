@@ -1,0 +1,12 @@
+<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
+<% @title = @page.title %>
+<div id="doubleBox">
+	<%= render :partial => 'filmmakers_menu' %>
+
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
+	<div class="contentCMS">
+		<h1><%= image_tag 'titles/directors_statements.gif', :alt => @page.title, :title => @page.title %></h1>
+		<%= @page.body %>
+	</div>
+	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+</div>

@@ -1,0 +1,19 @@
+<p>
+  <strong>Title:</strong><%=h @page.title %>
+</p>
+<p>
+  <strong>Body:</strong><div><%= @page.body %></div>
+</p>
+<p>
+  <strong>Created at:</strong><%=h @page.created_at %>
+</p>
+<p>
+  <strong>Updated at:</strong><%=h @page.updated_at %>
+</p>
+<p>
+  <strong>Permalink:</strong><%=h @page.permalink %>
+</p>
+
+<%= link_to 'Edit', edit_object_url %>
+|
+<%= link_to 'Back', collection_url %>

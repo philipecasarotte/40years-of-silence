@@ -1,0 +1,64 @@
+FileAttr
+========
+
+This plugin let you add a file as an attribute to a Rails model.
+
+Installing
+==========
+
+If you just extracted the source into vendor/plugins instead of installing via
+script/plugin install, you need to run "ruby vendor/plugins/file_attr/install.rb".
+
+Whatever method you use to install, the plugin will copy a migration to your db/migrate
+directory, with the datestamp of when the install script is run (either manually by you
+or automatically by script/plugin install).
+
+Before using the plugin, you need to run that migration by issuing "rake db:migrate".
+
+Example
+=======
+
+class User < ActiveRecord::Base
+	file_attribute :picture
+end
+
+Usage
+=====
+
+In a model, add the line "file_attribute :attribute_name", where ':attribute_name' is the name
+of the attribute you want to be a file. See the example above.
+
+The plugin will add the property to the model. For the example above, you could call user.picture.
+It would return a FileAttribute instance associated with the picture of thar user.
+
+You could also call user.picture.path or user.picture.remote_file_name to get a path to the file
+relative to RAILS_ROOT/public. You could then show the user's picture with
+<%= image_tar user.picture.path %>. If you needed to post-process the file, you could get its absolute
+file name on the server's filesystem with user.picture.local_file_name.
+
+To set the file, use user.picture= uploaded_temp_file, where uploaded_temp_file is a file uploaded
+through Rails. It will create a new FileAttribute, attach the file to it, and attach the
+FileAttribute to the property of the class.
+
+If you need to use a regular file (in the server's filesystem) you need to create
+a mock class which responds to 'original_filename' with only the basename, not the complete location
+of the file (you can pass it through File.basename); to 'size' with the file size; and to 'read', with
+the complete contents of the file as a string.
+
+File Name
+=========
+
+class User < ActiveRecord::Base
+	file_attribute :picture, :file => ':model.:ext'
+end
+
+Available placeholders:
+:model is the lowercased and underscored class for which this is an attribute.
+:id is the id of the object.
+:attribute is the name of the attribute.
+:filename is the name with which the file was uploaded.
+:basename is the same as :filename, without the extension.
+:ext is the file extension (such as 'jpg') of the original file
+
+
+Copyright (c) 2008 Davi Medrade, released under the MIT license

@@ -1,0 +1,18 @@
+<h1>Listing Albums</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <%- @albums.each do |album|%>
+    <tr>
+      <td><%=h album.title %></td>
+      <td><%=link_to "Photos (#{album.photos.size})", admin_album_photos_path(album) %></td>
+      <td><%=link_to 'Edit', edit_object_url(album) %></td>
+      <td><%=link_to 'Destroy', object_url(album), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Album', new_object_url %> | <%= link_to "Reorder", reorder_admin_albums_path %>

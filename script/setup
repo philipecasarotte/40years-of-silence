@@ -1,0 +1,230 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require 'fileutils'
+require File.dirname(__FILE__) + '/../config/boot'
+
+def start
+  # process the command line
+  action = 'usage'
+  only = []
+  except = []
+  ignore_next = false
+  0.upto(ARGV.length - 1) do |n|
+    if ignore_next
+      ignore_next = false
+      next
+    end
+    arg = ARGV[n]
+    case arg
+      when '--only'
+        only = ARGV[n+1].split(',')
+        ignore_next = true
+      when '--except'
+        except = ARGV[n+1].split(',')
+        ignore_next = true
+      when '--actions'
+        action = 'actions'
+      when /^[^\-]/
+        action = arg
+    end
+  end
+
+  # define the commands to execute
+  cmds = []
+
+  # This is the array of commands that must be executed.
+  # Each entry should have a :cmd (command line) or a :proc (function, from this file)
+  # to execute. If has a :run, will only run the action if :run evaluates true
+  # or if the action was asked by the user via the --only command-line option.
+  # If :run evaluates false and it is not in the --only list, the action's :ntext is shown
+  # to the user (should explain why the action wasn't run).
+  cmds << {:action => 'appyml', :proc => 'app_yml', :text => 'Create application restart configuration file',
+           :ntext => 'Skip if the file already exists', :run => !File.exist?(File.join(RAILS_ROOT, 'config/application.yml'))}
+  cmds << {:action => 'tmps', :cmd => 'rake --silent tmp:create', :text => 'Create \'tmp\' directory'}
+  cmds << {:action => 'dbyml', :proc => 'db_yml', :text => 'Create database configuration file',
+           :ntext => 'Skip if the file already exists', :run => !File.exist?(File.join(RAILS_ROOT, 'config/database.yml'))}
+  cmds << {:action => 'gems', :cmd => 'rake --silent gems:install', :text => 'Install the required gems'}
+  cmds << {:action => 'create', :cmd => 'rake --silent db:create:all', :text => 'Create all databases'}
+  cmds << {:action => 'file_attr', :cmd => "ruby #{File.join(RAILS_ROOT, 'vendor/plugins/file_attr/install.rb')}", :text => 'Run FileAttr Install Script'}
+  cmds << {:action => 'p_migrate', :cmd => 'bash -c "RAILS_ENV=development rake --silent db:migrate"', :text => 'Migrate the development database'}
+  cmds << {:action => 't_migrate', :cmd => 'bash -c "RAILS_ENV=test rake --silent db:migrate"', :text => 'Migrate the test database'}
+  cmds << {:action => 'populate', :cmd => 'rake --silent db:populate', :text => 'Populate the database'}
+  cmds << {:action => 'i_bdrb', :proc => 'bd_install', :text => 'Install BackgrounDRb plugin'}
+  cmds << {:action => 's_bdrb', :proc => 'bd_yml', :text => 'Setup BackgrounDRb',
+           :ntext => 'Skip if BackgrounDRb plugin is not installed or the BackgrounDRb config file already exists', :run => (File.exist?('vendor/plugins/backgroundrb') && !File.exist?(File.join(RAILS_ROOT, 'config/backgroundrb.yml')))}
+  cmds << {:action => 'restart', :cmd => 'script/restart', :text => '(Re)start the application'}
+
+  # execute what was asked for
+  case action
+    when 'setup'
+      do_setup(cmds, only, except)
+    when 'actions'
+      puts "Displaying all the actions:"
+      puts ""
+      cmds.each do |cmd|
+        puts <<-EOA
+  #{cmd[:action]} - #{cmd[:text]} #{"(conditional: #{cmd[:ntext]})" if cmd[:ntext]}
+    Command: #{cmd[:cmd] ? cmd[:cmd] : 'internal'}
+
+        EOA
+      end
+    else
+      puts <<-EOS
+  Usage: script/setup setup
+
+  Options:
+    --actions
+      Show all the action names
+    --except [actions]
+      Executes all the action(s) except the named (unless they
+      are explicitly asked for with --only). For more than
+      one, separate them with a ',' ONLY (no spaces).
+    --only [actions]
+      Executes only the action(s) named. For more than one,
+      separate them with a ',' ONLY (no spaces).
+      
+  Note: Some actions are only run if a determinate condition is
+    met. To force them to run anyway, use --only.
+      EOS
+  end
+end
+
+def do_setup(cmds, only, except)
+  puts "This script will setup the application."
+
+  0.upto(cmds.length - 1) do |n|
+    cmd = cmds[n]
+    puts ''
+    if cmd[:cmd]
+      puts "Step #{n+1}/#{cmds.length}: #{cmd[:action]} - #{cmd[:text]} (#{cmd[:cmd]})..."
+    else
+      puts "Step #{n+1}/#{cmds.length}: #{cmd[:action]} - #{cmd[:text]}"
+    end
+    if only.length == 0 || only.include?(cmd[:action])
+      if except.include?(cmd[:action]) && !only.include?(cmd[:action])
+        puts 'Skipping due to --except'
+      elsif cmd.has_key?(:run) && !cmd[:run] && !only.include?(cmd[:action])
+        puts 'Skipping due to conditional: ' + cmd[:ntext]
+      else
+        if cmd[:cmd]
+          system(cmd[:cmd])
+        else
+          send(cmd[:proc])
+        end
+        puts "Done."
+      end
+    else
+      puts 'Skipping (not in --only)'
+    end
+  end
+end
+
+def bd_yml
+  puts "Note: Automatic port detection will give wrong port if BackgrounDRb is already running"
+  puts "In wich case you should run 'script/backgroundrb stop' before running this."
+  config = {}
+  port = 11006
+  noport = 1
+  while(noport)
+    begin
+      port += 1 if noport == true 
+      TCPServer.open(port) do |serv|
+      end
+      noport = false
+    rescue
+      noport = true
+    end
+  end
+  config[:ip] = ask_user("BackgrounDRb Daemon Listen on IP", "127.0.0.1")
+  config[:port] = ask_user("BackgrounDRb TCP Port", port).to_i
+  prod = ask_user("Run in Production environment ('N' means Development)", "N").downcase
+  config[:environment] = (prod == 'y' ? 'production' : 'development')
+  File.open(File.join(RAILS_ROOT, 'config/backgroundrb.yml'), 'w') do |file|
+    file.puts({:backgroundrb => config}.to_yaml)
+  end
+  puts 'BackgrounDRb configuration file (config/application.yml) created.'
+  system('rake --silent backgroundrb:setup')
+end
+
+def app_yml
+  mongrel = ask_user("Use mongrel ('N' means Passenger)", "N").downcase
+  config = {}
+  config[:server] = (mongrel == 'y' ? 'mongrel' : 'passenger')
+  if mongrel == 'y'
+    config[:port] = ask_user("Mongrel TCP Port", "3000").to_i
+    prod = ask_user("Run in Production environment ('N' means Development)", "N").downcase
+    config[:environment] = (prod == 'y' ? 'production' : 'development')
+  end
+  File.open(File.join(RAILS_ROOT, 'config/application.yml'), 'w') do |file|
+    file.puts(config.to_yaml)
+  end
+  puts 'Application restart configuration file (config/application.yml) created.'
+end
+
+def ask_user(question, default = nil, hide_typing = false)
+  $stdout.sync = true
+  $stdout.write("#{question}: #{"[#{default}]" if default} ")
+  `stty -echo` if hide_typing
+  ret = $stdin.gets.chomp
+  if hide_typing
+    `stty echo`
+    puts ''
+  end
+  return ret == '' ? default : ret
+end
+
+def db_yml
+  proj = File.basename(File.expand_path(File.join(File.dirname(__FILE__), '..')))
+  config = {'development' => {'adapter' => 'mysql', 'encoding' => 'utf8'}}
+  config['production'] = config['development'].dup
+  config['test'] = config['development'].dup
+  puts "*** DEVELOPMENT ENVIRONMENT ***"
+  config['development']['username'] = ask_user('MySQL Username', 'root')
+  config['development']['password'] = ask_user('MySQL Password', '', true)
+  config['development']['database'] = ask_user('MySQL Database', "dev_#{proj}")
+  puts "*** TEST ENVIRONMENT ***"
+  config['test']['username'] = ask_user('MySQL Username', 'root')
+  config['test']['password'] = ask_user('MySQL Password', '', true)
+  config['test']['database'] = ask_user('MySQL Database', "test_#{proj}")
+  if ask_user("Use the same database for development and production", 'Y').downcase == 'y'
+    config['production'] = 'development'
+  else
+    puts "*** PRODUCTION ENVIRONMENT ***"
+    config['production']['username'] = ask_user('MySQL Username', 'root')
+    config['production']['password'] = ask_user('MySQL Password', '', true)
+    config['production']['database'] = ask_user('MySQL Database', "prod_#{proj}")
+  end
+  File.open(File.join(RAILS_ROOT, 'config/database.yml'), 'w') do |file|
+    file.puts(config.to_yaml)
+  end
+  puts 'Database configuration file (config/database.yml) created.'
+end
+
+def bd_install
+  i = ask_user('Install BackgrounDRb (Background Job Daemon)', 'N')
+  if i == 'y'
+    config = File.readlines(File.join(RAILS_ROOT, 'config/environment.rb'))
+    g = 0
+    config.each do |c|
+      c.chomp!
+    end
+    config.each do |c|
+      break if c.match(/ADD-GEMS/)
+      g += 1
+    end
+    ["  config.gem 'chronic'", "  config.gem 'packet'"].each do |line|
+      config.insert(g+1, line) unless config.index(line)
+    end
+    File.open(File.join(RAILS_ROOT, 'config/environment.rb'), 'w') do |f|
+      f.write(config.join("\n"))
+    end
+    puts "Installing the required gems..."
+    system("rake gems:install --silent")
+    puts "Done."
+    puts "Installing the plugin..."
+    system("script/plugin install http://svn.devjavu.com/backgroundrb/trunk")
+    puts "Done."
+  end
+end
+
+start

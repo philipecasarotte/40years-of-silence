@@ -1,0 +1,16 @@
+<p>
+  <strong>Login:</strong><%=h @user.login %>
+</p>
+<p>
+  <strong>Email:</strong><%=h @user.email %>
+</p>
+<p>
+  <strong>Created at:</strong><%=h @user.created_at %>
+</p>
+<p>
+  <strong>Updated at:</strong><%=h @user.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_object_url %>
+|
+<%= link_to 'Back', collection_url %>
