@@ -21,6 +21,11 @@
           <%= time_ago_in_words(topic.last_message.created_at) %> ago
         </span>
       </td>
+			<% if logged_in? and current_user.administrator? %>
+			<td>
+				<%= link_to "Delete", topic_path(topic), :method=>:delete, :confirm=>"Are you sure?" %>
+			</td>
+			<% end %>
     </tr>
   <% end %>
 </table>

@@ -37,6 +37,11 @@ module Bagpipes
           render :action => 'new'
         end
       end
+      
+      def destroy
+        @topic = Topic.find(params[:id]).destroy
+        redirect_to :action=>:index
+      end
 
       include FlashErrorsHelper
       protected :grab_errors_from_object

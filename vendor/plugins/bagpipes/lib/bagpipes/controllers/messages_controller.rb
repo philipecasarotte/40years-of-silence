@@ -40,6 +40,11 @@ module Bagpipes
           render :action => 'new'
         end
       end
+      
+      def destroy
+        @message = Message.find(params[:id]).destroy
+        redirect_to topic_path(params[:topic_id])
+      end
 
       private
       def require_topic
