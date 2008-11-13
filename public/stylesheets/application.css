@@ -44,7 +44,7 @@ textarea {height:90px;font:12px "Trebuchet MS", Verdana, Tahoma, Arial, sans-ser
 #doubleBox #menuLeft ul li ul {background:none;margin-left:-10px;}
 #doubleBox #menuLeft ul li a {display:block;color:white;text-decoration:none;padding:3px;font-weight:bold;}
 #doubleBox div {float:left;background:url(../images/content/back_box.png) repeat;width:599px;padding:5px 20px;height:auto !important;height:340px; min-height:340px;}
-#doubleBox div.contentCMS img {border:solid 10px #471000;}
+#doubleBox div.contentCMS img {border:solid 10px black;}
 #doubleBox div.contentCMS h1 img {border:none;}
 #doubleBox #flashTimeline {background:none;width:auto;padding:0;}
 
