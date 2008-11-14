@@ -29,7 +29,9 @@ body.home #main {float:left;width:100%;}
 /*Content Section*/
 #content {float:left;width:970px;height:auto !important;height:480px;min-height:480px;margin-top:40px;}
 
+
 #singleBox {width:599px;margin-left:272px;}
+body.black #singleBox {width:599px;margin-left:205px;}
 #singleBox div {float:left;background:url(../images/content/back_box.png) repeat;width:599px;padding:5px 20px;height:auto !important;height:340px; min-height:340px;}
 #singleBox #contact form {width:340px;padding-right:20px;border-right:solid 1px #6E2301;float:left;margin-right:30px;}
 #singleBox #contact form input,
@@ -39,6 +41,7 @@ body.home #main {float:left;width:100%;}
 #singleBox #contact ul  {margin:10px 0 10px 40px;}
 #singleBox #contact ul li {margin:5px 0;}
 #singleBox #contact img {margin:0;}
+#singleBox #videoPlayer {background:none;margin:0;padding:0;width:auto;}
 
 #doubleBox {width:921px;margin-left:20px;position:relative;}
 #doubleBox #menuLeft {float:left;width:252px;margin:120px 0 0 0;padding:0;background:none;height:auto !important;height:auto; min-height:auto;}
@@ -52,6 +55,7 @@ body.home #main {float:left;width:100%;}
 #doubleBox div.contentCMS img {border:solid 10px black;}
 #doubleBox div.contentCMS h1 img {border:none;}
 #doubleBox #flashTimeline {background:none;width:auto;padding:0;}
+#doubleBox #videoPlayer {background:none;margin:0;padding:0;width:auto;}
 
 /*Press*/
 #singleBox dl {width:599px;}
