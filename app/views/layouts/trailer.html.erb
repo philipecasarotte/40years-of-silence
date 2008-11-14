@@ -14,7 +14,7 @@
 	<%= javascript_include_tag :defaults, 'plugins/ifixpng', 'plugins/flash', 'film/menu' %>
 	<%= yield :head %>
 </head>
-<body>
+<body class="black">
 <div id="main">
 	<%= link_to image_tag ('elemental_productions.png', :width => 265, :height => 94, :alt => "Elemental Productions", :title => "Elemental Productions", :id => "logo"), '/' %>
 	<ul id="menu">
@@ -28,9 +28,6 @@
 	    <li><%= link_to image_tag ('menu/bot_resources.gif', :width => 93, :height => 26, :alt => "Resources", :title => "Resources"), '/page/indonesian-timeline' %></li>
 	    <li><%= link_to image_tag ('menu/bot_contact.gif', :width => 73, :height => 26, :alt => "Contact", :title => "Contact"), '/page/contact' %></li>
 	</ul>
-	<div id="flash">
-		
-	</div>
 	<div id="content">
 		<%= yield %>
 	</div>

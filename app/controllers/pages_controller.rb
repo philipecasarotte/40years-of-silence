@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   # (for permalink 'tell-a-friend', define function 'tell_a_friend')
   CUSTOM_ACTIONS = %w(contact)
 
+
   def show
     @page = Page.find_by_permalink(params[:permalink])
 
@@ -29,15 +30,24 @@ class PagesController < ApplicationController
       show
       return false
     end
-    
-    body = render_to_string(:action => fname)
+	
+    if params[:permalink] == 'trailer'
+	    body = render_to_string(:action => fname, :layout => 'trailer')
+	elsif params[:permalink] == 'home'
+	    body = render_to_string(:action => fname, :layout => 'flash')
+	else
+		body = render_to_string(:action => fname)
+	end
+	
     while(m = body.match(/%const\[([A-Z0-9\._:]+?)\]%/))
       body.sub!("%const[#{m[1]}]%", Module.const_get(m[1]))
     end
     while(m = body.match(/%params\[([a-z0-9_\[\]]+?)\]%/))
       body.sub!("%params[#{m[1]}]%", params.send('[]', m[1].to_sym))
     end
-    render :text => body
+    
+	render :text => body
+    
   end
 
   def contact

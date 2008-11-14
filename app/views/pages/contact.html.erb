@@ -2,7 +2,7 @@
 <div id="singleBox">
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
 %><div id="contact" class="contentCMS">
-		<h1><%= image_tag 'titles/title_contact.gif', :size => '81x20', :alt => "Contact", :title => "Contact" %></h1>
+		<h1><%= image_tag 'titles/title_contact.gif', :alt => "Contact", :title => "Contact" %></h1>
 		<% form_for('contact') do |f| %>
 			<% [:error, :notice].each do |message| %>
 				<% content_tag :div, :class => message do %>
@@ -15,7 +15,7 @@
 			<%= f.label('message', 'Message:') %><%= f.text_area 'message' %>
 			<%= image_submit_tag("buttons/bot_send.jpg", :class => 'submit') %>
 		<% end %>
-		<h2><%= image_tag 'titles/title_elemental_productions.gif', :size => '169x20', :alt => "Elemental Productions", :title => "Elemental Productions" %></h2>
+		<h2><%= image_tag 'titles/title_elemental_productions.gif', :alt => "Elemental Productions", :title => "Elemental Productions" %></h2>
 		<%= @page.body %>
 		<%= image_tag 'temp4.jpg', :alt => "Contact", :title => "Contact" %>
 	</div>
