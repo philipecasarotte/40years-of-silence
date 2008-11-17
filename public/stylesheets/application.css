@@ -31,7 +31,7 @@ body.home #main {float:left;width:100%;}
 
 
 #singleBox {width:599px;margin-left:272px;}
-body.black #singleBox {width:599px;margin-left:205px;}
+body.black #singleBox {width:599px;margin-left:95px;}
 #singleBox div {float:left;background:url(../images/content/back_box.png) repeat;width:599px;padding:5px 20px;height:auto !important;height:340px; min-height:340px;}
 #singleBox #contact form {width:340px;padding-right:20px;border-right:solid 1px #6E2301;float:left;margin-right:30px;}
 #singleBox #contact form input,
