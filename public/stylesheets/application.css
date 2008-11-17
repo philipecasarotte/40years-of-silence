@@ -3,7 +3,7 @@ img {border:0;}
 
 html {height:100%;}
 
-body {height:100%;background:black url(../images/back_body.jpg) left top no-repeat;margin:30px 0 0 30px;font:12px "Trebuchet MS", Verdana, Tahoma, Arial, sans-serif;color:#958367;}
+body {height:100%;background:black url(../images/back_body.jpg) left top no-repeat;margin:30px 0 0 30px;font:12px "Trebuchet MS", Verdana, Tahoma, Arial, sans-serif;color:white;}
 body.black,
 body.home {background-image:none;}
 body.home {margin:0;}
@@ -105,12 +105,12 @@ body.black #singleBox {width:599px;margin-left:205px;}
 #galleriesMenu a.crew:hover {background-image: url(/images/buttons/bot_crew_on.gif);}
 
 /*Footer Section*/
-#footer {float:left;width:940px;padding-bottom:20px;}
+#footer {float:left;width:940px;padding-bottom:20px;margin-top:20px;}
 #footer a {text-decoration:none;}
 #footer ul {margin:0 auto 0 auto;width:500px;}
-#footer ul li {float:left;display:inline;color:#666;}
-#footer ul li a {color:#666;margin:0 5px;}
-#footer ul li a:hover {color:white;}
+#footer ul li {float:left;display:inline;color:#72450E;}
+#footer ul li a {color:#72450E;margin:0 5px;}
+#footer ul li a:hover {color:#666;}
 #footer p,
 #footer p a {font-size:10px;color:#72450E;clear:both;text-align:center;padding-top:10px;}
 #footer p a:hover {text-decoration:underline;}
