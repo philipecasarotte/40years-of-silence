@@ -56,6 +56,7 @@ body.black #singleBox {width:599px;margin-left:95px;}
 #doubleBox div.contentCMS h1 img {border:none;}
 #doubleBox #flashTimeline {background:none;width:auto;padding:0;}
 #doubleBox #videoPlayer {background:none;margin:0;padding:0;width:auto;}
+#doubleBox div.alt {background:none;width:auto;padding:0;height:auto !important;height:auto; min-height:auto;margin:0;}
 
 /*Press*/
 #singleBox dl {width:599px;}
@@ -93,7 +94,7 @@ body.black #singleBox {width:599px;margin-left:95px;}
 .contentCMS h1 img,
 .contentCMS h2 img {margin:0;}
 /*.contentCMS ul li {list-style-image:url(../images/bullets/bullet_01.gif);} */
-.contentCMS a {color:#958367;}
+.contentCMS a {color:white;}
 .contentCMS a:hover {color:white;}
 
 #galleriesMenu a { text-indent: -10000px; display: block; width: 215px; height: 25px; background-repeat: no-repeat; }
