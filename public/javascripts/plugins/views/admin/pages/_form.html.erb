@@ -1,0 +1,39 @@
+<p>
+  <label for="page_title">Title:</label>
+  <%= f.text_field :title %>
+</p>
+<%= render :partial => 'layouts/admin/meta_form', :locals => {:f => f} %>
+<p>
+  <label for="page_parents">Parent Page:</label>
+  <select id="page_parents" name="page[parent_ids][]">
+  <option value="" <%= 'selected="selected"' if @page.parents.length == 0 %>>&lt;none&gt;</option>
+  <%
+    @ids = []
+    level = 1
+    show_tree(@pages) do |page, stage|
+      case stage
+        when :before
+          %><option value="<%= page.id %>" <%= "disabled='disabled'" unless @page.can_be_child_of?(page) %> <%= "selected='selected'" if @page.parents.include?(page) %>><%= "#{'&nbsp;' * level * 5}#{page.title}" %></option><%
+        when :before_children
+          level += 1
+          %><ul><%
+        when :after_children
+          level -= 1
+          %></ul><%
+        when :after
+          %></li><%
+      end
+    end
+  %>
+  </select>
+</p>
+<p>
+  <label for="page_body">Body:</label>
+  <%= fckeditor_textarea 'page', 'body', :height => '300px' %>
+</p>
+<script type="text/javascript">
+  $("#pages input").click(function(){
+    v = this.checked;
+    $("."+this.className).attr('checked', v);
+  });
+</script>

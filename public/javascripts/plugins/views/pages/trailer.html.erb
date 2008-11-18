@@ -1,0 +1,10 @@
+<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
+<% @title = @page.title %>
+<div id="singleBox">
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
+%><div class="contentCMS">
+		<div id="videoPlayer"></div>
+		<%#= @page.body %>
+	</div>
+	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+</div>

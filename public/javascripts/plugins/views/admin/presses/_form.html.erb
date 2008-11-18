@@ -1,0 +1,27 @@
+<fieldset>
+	<legend>PDF</legend>
+	<p>
+		<label for="press_pdf">File:</label>
+		<%= f.file_field :pdf %>
+	</p>
+	<p>
+		<%= f.label :pdf_description, "Description" %>
+		<%= f.text_area :pdf_description %>
+	</p>
+</fieldset>
+
+<fieldset>
+	<legend>Press Details</legend>
+	<p>
+		<label for="press_pdf">Cover:</label>
+		<%= f.file_field :cover %>
+	</p>
+	<p>
+	  <label for="press_title">Title:</label>
+	  <%= f.text_field :title %>
+	</p>
+	<p>
+	  <label for="press_description">Description:</label>
+	  <%= f.text_area :description %>
+	</p>
+</fieldset>

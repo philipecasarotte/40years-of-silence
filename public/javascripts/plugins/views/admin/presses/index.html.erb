@@ -1,0 +1,19 @@
+<h1>Listing Presses</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+  <%- @presses.each do |press|%>
+    <tr>
+      <td><%=h press.title %></td>
+      <td><%=h press.description %></td>
+      <td><%=link_to 'Edit', edit_object_url(press) %></td>
+      <td><%=link_to 'Destroy', object_url(press), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Press', new_object_url %> | <%= link_to "Reorder", reorder_admin_presses_path %>

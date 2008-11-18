@@ -1,0 +1,31 @@
+<div id="doubleBox">
+	<div id="menuLeft">
+		<%= image_tag 'content/top_menu_rouded.png', :size => "252x15" %><%
+    %><ul id="galleriesMenu">
+		  <% @galleries.each do |gallery| %>
+				<li><%= link_to gallery.title, { :action=>:show, :id=>gallery }, :class=>gallery.permalink %></li>
+			<% end %>
+		</ul>
+		<%= image_tag 'content/bottom_menu_rouded.png', :size => "252x15" %>	
+	</div>
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
+    %><div class="gallery">
+		<h1><%= image_tag 'titles/title_gallery.gif', :alt => "Gallery", :title => "Gallery" %></h1>
+		<div id="galleryMenu">
+			<ul>
+				<% @photos.each do |photo| %>
+					<li><%= link_to_remote image_tag(photo.image.url(:thumb)), 
+																:update=>"big", 
+																:url=>photo_path(photo),
+																:loading=>"$('.loading').show()",
+																:complete=>"$('.loading').hide()" %></li>
+				<% end %>
+			</ul>
+			<%= will_paginate @photos, :prev_label=>"<", :next_label=>">" %>
+		</div>		
+		<%= image_tag 'loading.gif', :alt => "Loading", :title => "Loading", :class => 'loading' %>
+		<div id="big"><%= image_tag @photo.image.url(:big), :alt=>@photo.title, :title=>@photo.title %></div>
+		<cite><%= @photo.title %></cite>
+	</div>
+	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+</div>

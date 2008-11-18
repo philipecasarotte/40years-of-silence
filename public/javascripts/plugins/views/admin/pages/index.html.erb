@@ -1,0 +1,38 @@
+<h1>Listing Pages</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Permalink</th>
+  </tr>
+  <ul>
+    <%
+      level = 0
+      show_tree(@pages) do |page, stage|
+        case stage
+          when :before
+            level += 1
+            %>
+              <tr>
+                <td><%= "&nbsp;" * 3 * (level-1) %><%= page.title %></td>
+								<td><%= truncate strip_tags(page.body), 80 %></td>
+                <td><%= page.permalink %></td>
+                <td><%= link_to 'Show', object_url(page) %></td>
+                <td><%= link_to 'Edit', edit_object_url(page) %></td>
+                <td><%= link_to 'Destroy', object_url(page), :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+            <%
+          when :after
+            level -= 1
+            ''
+          else
+            ''
+        end
+      end
+    %>
+  </ul>
+</table>
+<br/>
+
+<%= link_to 'New Page', new_object_url %>

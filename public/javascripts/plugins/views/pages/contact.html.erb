@@ -1,0 +1,23 @@
+<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
+<div id="singleBox">
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
+%><div id="contact" class="contentCMS">
+		<h1><%= image_tag 'titles/title_contact.gif', :alt => "Contact", :title => "Contact" %></h1>
+		<% form_for('contact') do |f| %>
+			<% [:error, :notice].each do |message| %>
+				<% content_tag :div, :class => message do %>
+					<%= flash[message] %>
+				<% end if flash[message] %>
+			<% end %>
+			<p>Submit the form below and we will get back to you as soon as possible.</p>
+			<%= f.label('name', 'Name:') %> <%= f.text_field 'name' %>
+			<%= f.label('email', 'E-mail:')%> <%= f.text_field 'email' %>
+			<%= f.label('message', 'Message:') %><%= f.text_area 'message' %>
+			<%= image_submit_tag("buttons/bot_send.jpg", :class => 'submit') %>
+		<% end %>
+		<h2><%= image_tag 'titles/title_elemental_productions.gif', :alt => "Elemental Productions", :title => "Elemental Productions" %></h2>
+		<%= @page.body %>
+		<%= image_tag 'temp4.jpg', :alt => "Contact", :title => "Contact" %>
+	</div>
+	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+</div>

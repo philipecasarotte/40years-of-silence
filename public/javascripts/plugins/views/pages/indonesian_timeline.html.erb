@@ -3,12 +3,12 @@
 <div id="doubleBox">
 	<%= render :partial => 'resources_menu' %>
 	
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
-%><div class="contentCMS">
-		<h1><%= image_tag 'titles/genocide_in_the_20th_century.gif', :alt => @page.title, :title => @page.title %></h1>
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
+	<div class="contentCMS">
+		<h1><%= image_tag 'titles/title_indonesian_timeline.gif', :alt => @page.title, :title => @page.title %></h1>
 		<%= @page.body %>
 		<div id="flashTimeline"></div>
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>
-<%= javascript_include_tag 'page/genocide_timeline' %>
+<%= javascript_include_tag 'page/indonesia_timeline' %>

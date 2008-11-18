@@ -1,14 +1,12 @@
 <%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
 <% @title = @page.title %>
 <div id="doubleBox">
-	<%= render :partial => 'resources_menu' %>
+	<%= render :partial => 'film_menu' %>
 	
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
 %><div class="contentCMS">
-		<h1><%= image_tag 'titles/genocide_in_the_20th_century.gif', :alt => @page.title, :title => @page.title %></h1>
+		<h1><%= image_tag 'titles/characters.gif', :alt => @page.title, :title => @page.title %></h1>
 		<%= @page.body %>
-		<div id="flashTimeline"></div>
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>
-<%= javascript_include_tag 'page/genocide_timeline' %>
