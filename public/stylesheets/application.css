@@ -119,3 +119,20 @@ body.black #singleBox {width:599px;margin-left:95px;}
 /*Class*/
 .clear {clear:both;}
 .loading {position:absolute;display:none;}
+/*Topics*/
+.topics_table            {margin:15px 0;}
+.topics_table th         {padding-bottom:4px;border-bottom:1px solid #666;}
+.topics_table td         {padding:4px 0;text-align:center;vertical-align:top;line-height:150%;}
+.topics_table td a       {color:#ccc;text-decoration:none;}
+.topics_table td a:hover {color:#ECAF22;}
+.left_text               {text-align:left !important;}
+.right_text              {text-align:right !important;}
+
+/*Message*/
+#new_message fieldset         {border:none;}
+#new_message label            {margin:5px 0;}
+#new_message .input_message   {width:300px;height:24px;}
+#new_message .text_message    {width:500px;height:120px;}
+#new_message .submit_bt       {margin-left:430px;}
+.message_h1 a                 {color:#ccc; text-decoration:none;}
+.message_h1 a:hover           {color:#ECAF22;}

@@ -1,38 +1,45 @@
-<h1><%= h @topic.title %></h1>
+<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
+<div id="doubleBox">
+	<%= render :partial => 'topics' %>
 
-<%= @topic.description.blank? ? content_tag(:p, 'No description given', :class => 'no-description') : simple_format(h(@topic.description)) %>
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
+	<div>
+		<h1><%= h @topic.title %></h1>
+		<%= @topic.description.blank? ? content_tag(:p, 'No description given', :class => 'no-description') : simple_format(h(@topic.description)) %>
 
-<%= content_tag :p, link_to('Add a message', new_topic_message_path(@topic)) if logged_in? && current_user %>
-
-<table cellspacing="0">
-  <tr>
-    <th>Messages</th>
-    <th>By</th>
-    <th># Replies</th>
-    <th>Last Reply</th>
-  </tr>
-  <% @topic.messages.children_of(nil).by_recency.each_with_index do |message, i| %>
-    <tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
-      <td>
-        <%= link_to h(message.title), topic_message_path(@topic, message) %>
-        <%= simple_format(truncate(h(message.content), 100)) %>
-      </td>
-      <td>
-        <%= h(message.user.name) %>
-      </td>
-      <td class="counter">
-        <%= message.children.count %>
-      </td>
-      <td class="date-col">
-        <span title="<%= message.last_reply.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
-          <%= time_ago_in_words(message.last_reply.created_at) %> ago
-        </span>
-      </td>
-			<% if logged_in? and current_user.administrator? %>
-			<td>
-				<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
-			</td>
+		<table cellspacing="0" class="topics_table" width="100%">
+			<tr>
+				<th class="left_text">Messages</th>
+				<th class="left_text">By</th>
+				<th class="right_text"># Replies</th>
+				<th class="right_text">Last Reply</th>
+			</tr>
+				<% @topic.messages.children_of(nil).by_recency.each_with_index do |message, i| %>
+			<tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
+				<td class="left_text">
+					<%= link_to h(message.title), topic_message_path(@topic, message) %>
+					<%= simple_format(truncate(h(message.content), 100)) %>
+				</td>
+				<td class="left_text">
+					<%= h(message.user.name) %>
+				</td>
+				<td class="counter right_text">
+					<%= message.children.count %>
+				</td>
+				<td class="date-col right_text">
+				<span title="<%= message.last_reply.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
+					<%= time_ago_in_words(message.last_reply.created_at) %> ago
+				</span>
+				</td>
+					<% if logged_in? and current_user.administrator? %>
+				<td>
+					<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
+				</td>
+				<% end %>
+			</tr>
 			<% end %>
-    </tr>
-  <% end %>
-</table>
+		</table>
+	</div>
+	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+</div>
+<%= javascript_include_tag 'plugins/flashembed.min', 'page/directors_statements' %>
