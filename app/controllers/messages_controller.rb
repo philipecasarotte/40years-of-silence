@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
   include Bagpipes::Controllers::MessagesController
 
-  layout 'application'
+  layout 'bagpipes'
 end

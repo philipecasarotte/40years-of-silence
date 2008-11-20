@@ -1,9 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :topics, :has_many => [:messages]
   map.new_reply 'topics/:topic_id/parent/:parent_id', :controller => 'messages', :action => 'new'
-  map.connect "/signup", :controller=>"users", :action=>"new"
 
-  map.resources :users
   map.resources :presses
   
   map.namespace :admin do |admin|
