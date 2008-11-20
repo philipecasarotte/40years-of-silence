@@ -1,4 +1,4 @@
 class MembersController < ApplicationController
   include Bagpipes::Controllers::MembersController
-  layout 'bagpipes'
+  layout 'application'
 end
