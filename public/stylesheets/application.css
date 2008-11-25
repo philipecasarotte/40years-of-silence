@@ -8,6 +8,8 @@ body.black,
 body.home {background-image:none;}
 body.home {margin:0;}
 
+a {color:white;}
+
 h1 {font-size:24px;margin-bottom:10px;}
 
 label {display:block;font-weight:bold;margin-top:5px;}
@@ -54,7 +56,8 @@ body.black #singleBox {width:599px;margin-left:150px;}
 #doubleBox div.contentCMS h1 img {border:none;}
 #doubleBox #flashTimeline {background:none;width:auto;padding:0;}
 #doubleBox #videoPlayer {background:none;margin:0;padding:0;width:auto;}
-#doubleBox div.alt {background:none;width:auto;padding:0;height:auto !important;height:auto; min-height:auto;margin:0;}
+#doubleBox div.alt {background:none;width:auto;padding:0;height:auto !important;height:auto;min-height:40px;margin:0;}
+#doubleBox div.alt label {display:block;}
 
 /*Press*/
 #singleBox dl {width:599px;}
