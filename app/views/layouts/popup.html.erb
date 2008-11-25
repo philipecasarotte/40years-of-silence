@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>.:: <%= SITE_NAME %> ::. </title>
+	<%= stylesheet_link_tag "application" %>
+	
+	<link href="/images/favicon.ico" type="image/x-icon" rel="icon"/>
+	<link href="/images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+
+	<%= javascript_include_tag :defaults, 'plugins/ifixpng', 'plugins/flashembed.min', 'plugins/flash' %>
+	<%= yield :head %>
+</head>
+<body class="black">
+<%= yield %>
+</body>
+</html>

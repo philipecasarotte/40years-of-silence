@@ -35,6 +35,8 @@ class PagesController < ApplicationController
 	    body = render_to_string(:action => fname, :layout => 'trailer')
 	elsif params[:permalink] == 'home'
 	    body = render_to_string(:action => fname, :layout => 'flash')
+	elsif params[:permalink] == 'degung' or params[:permalink] == 'kereta' or params[:permalink] == 'budi' or params[:permalink] == 'lanny'
+		body = render_to_string(:action => fname, :layout => 'popup')
 	else
 		body = render_to_string(:action => fname)
 	end

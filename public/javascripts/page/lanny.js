@@ -1,16 +1,13 @@
 $(function() {
       $('#videoPlayer').flashembed({
         src: '/swf/player.swf',
-        //width: 482,
-        //height: 364+28
-        width: 610,
-        height: 460+28
+        width: 470,
+        height: 360+28
       }, {
         config: {
-          videoFile: '/flv/trailer.flv',
-          splashImageFile: '/images/trailer_splash.jpg',
+          videoFile: '/flv/lanny.flv',
           controlBarBackground: 0x000000,
-          initialScale: 'fill',
+          initialScale: 'orig',
           initialVolumePercentage: 100,
           loop: false,
           menuItems: [true, true, true, true, true, false],

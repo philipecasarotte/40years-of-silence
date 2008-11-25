@@ -15,7 +15,7 @@ input, select {height:20px;font-size:12px;}
 input, textarea {border:none;}
 textarea {height:90px;font:12px "Trebuchet MS", Verdana, Tahoma, Arial, sans-serif;}
 
-#main {float:left;width:970px;}
+#main {float:left;width:990px;}
 body.home #main {float:left;width:100%;}
 #logo {float:left;}
 
@@ -23,15 +23,13 @@ body.home #main {float:left;width:100%;}
 #flashHome {float:left;width:100%;}
 
 /*Top Section*/
-#menu {margin:40px 0 0 30px;float:left;}
+#menu {margin:40px 0 0 10px;float:left;}
 #menu li {float:left;display:inline;}
 
 /*Content Section*/
 #content {float:left;width:970px;height:auto !important;height:480px;min-height:480px;margin-top:40px;}
-
-
 #singleBox {width:599px;margin-left:272px;}
-body.black #singleBox {width:599px;margin-left:95px;}
+body.black #singleBox {width:599px;margin-left:150px;}
 #singleBox div {float:left;background:url(../images/content/back_box.png) repeat;width:599px;padding:5px 20px;height:auto !important;height:340px; min-height:340px;}
 #singleBox #contact form {width:340px;padding-right:20px;border-right:solid 1px #6E2301;float:left;margin-right:30px;}
 #singleBox #contact form input,
