@@ -24,8 +24,8 @@
 			<%= will_paginate @photos, :prev_label=>"<", :next_label=>">" %>
 		</div>		
 		<%= image_tag 'loading.gif', :alt => "Loading", :title => "Loading", :class => 'loading' %>
-		<div id="big"><%= image_tag @photo.image.url(:big), :alt=>@photo.title, :title=>@photo.title %></div>
-		<cite><%= @photo.title %></cite>
+		<div id="big"><%= render :partial => 'photos/photo' %></div>
+		<% # <div id="big"><%= image_tag @photo.image.url(:big), :alt=>@photo.title, :title=>@photo.title % ></div> %>
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>

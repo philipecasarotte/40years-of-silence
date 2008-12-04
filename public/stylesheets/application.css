@@ -5,6 +5,7 @@ html {height:100%;}
 
 body {height:100%;background:black url(../images/back_body.jpg) left top no-repeat;margin:30px 0 0 30px;font:12px "Trebuchet MS", Verdana, Tahoma, Arial, sans-serif;color:white;}
 body.black,
+body.transcript,
 body.home {background-image:none;}
 body.home {margin:0;}
 
@@ -32,6 +33,7 @@ body.home #main {float:left;width:100%;}
 #content {float:left;width:970px;height:auto !important;height:480px;min-height:480px;margin-top:40px;}
 #singleBox {width:599px;margin-left:272px;}
 body.black #singleBox {width:599px;margin-left:150px;}
+body.transcript #singleBox {width:500px;margin:0 10px 0 0; padding:0;}
 #singleBox div {float:left;background:url(../images/content/back_box.png) repeat;width:599px;padding:5px 20px;height:auto !important;height:340px; min-height:340px;}
 #singleBox #contact form {width:340px;padding-right:20px;border-right:solid 1px #6E2301;float:left;margin-right:30px;}
 #singleBox #contact form input,

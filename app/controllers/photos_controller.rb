@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
     
     @photo = Photo.find(photo)
     
-    render :layout=>false
+    render :partial => 'photo'
   end
 
 end
