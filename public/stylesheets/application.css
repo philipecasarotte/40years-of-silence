@@ -145,6 +145,7 @@ h2.titleReply			  {color:#ECAF22; font-size:14px; margin-bottom:6px;}
 .replies_table td a:hover {color:#ECAF22;}
 
 /*Message*/
+blockquote p {margin: 0 0 10px 0; line-height: 1.5em;}
 #new_message fieldset         {border:none;}
 #new_message label            {margin:5px 0;}
 #new_message .input_message   {width:300px;height:24px;}

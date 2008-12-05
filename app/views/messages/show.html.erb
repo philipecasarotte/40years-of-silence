@@ -11,7 +11,7 @@
 			<% end %>
 		  </span>
 		  <h2 class="titleReply"><%= h(@message.title) %></h2>
-		<%= simple_format(@message.content) %>
+		<blockquote><%= simple_format(@message.content) %></blockquote>
 		<% unless @message.parent %>
 		  <table id="replies" cellspacing="0" class="replies_table" width="100%">
 			<tr>
