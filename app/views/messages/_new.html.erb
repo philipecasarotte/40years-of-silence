@@ -1,8 +1,10 @@
 <div id="menuLeft">
 	<%= image_tag 'content/top_menu_rouded.png', :size => "252x15" %>
 	<ul>
+		<%  if logged_in? && current_user %>
 		<li><%= link_to 'Back to Messages', @topic %></li>
-		<li><%= link_to "My Account", edit_user_path(current_user) %></li>
+		<% end %>
+		<%= render :partial => 'topics/login' %>
 	</ul>
 	<%= image_tag 'content/bottom_menu_rouded.png', :size => "252x15" %>	
 </div>
