@@ -57,7 +57,7 @@ module Bagpipes
       def require_member_login
         unless logged_in? && current_user
           flash[:error] = "You must be a member of the forum to do that"
-          redirect_to @topic
+          redirect_to new_session_path
         end
       end
 

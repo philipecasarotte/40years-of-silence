@@ -2,6 +2,7 @@
 	<%= image_tag 'content/top_menu_rouded.png', :size => "252x15" %>
 	<ul>
 		<li><%= content_tag :p, link_to('Add a reply', new_reply_path(@topic, @message)) if logged_in? && current_user %></li>
+		<li><%= link_to "My Account", edit_user_path(current_user) %></li>
 	</ul>
 	<%= image_tag 'content/bottom_menu_rouded.png', :size => "252x15" %>	
 </div>

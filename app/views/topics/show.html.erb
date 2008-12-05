@@ -1,6 +1,6 @@
 <%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
 <div id="doubleBox">
-	<%= render :partial => 'topics' %>
+	<%= render :partial => 'messages' %>
 
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
 	<div>
@@ -18,7 +18,6 @@
 			<tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
 				<td class="left_text">
 					<%= link_to h(message.title), topic_message_path(@topic, message) %>
-					<%= simple_format(truncate(h(message.content), 100)) %>
 				</td>
 				<td class="left_text">
 					<%= h(message.user.name) %>

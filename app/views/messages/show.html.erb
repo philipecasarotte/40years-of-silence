@@ -22,11 +22,10 @@
 			<% @message.children.by_recency.each_with_index do |message, i| %>
 			  <tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
 				<td class="left_text">
-				  <%= link_to h(message.title), topic_message_path(@topic, message) %>
 				  <%= simple_format(h(message.content)) %>
 				</td>
 				<td class="right_text">
-				  <%= h(message.user.name) %>
+				  <%= h(message.user.login) %>
 				</td>
 				<td class="date-col right_text" width="80px">
 				  <span title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">

@@ -1,4 +1,3 @@
-
 <%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
 <div id="doubleBox">
 	<%= render :partial => 'new' %>
@@ -7,10 +6,6 @@
 		<h1>New Message in <%= h @topic.title %></h1>
 		<% form_for @message, :url => topic_messages_path(@topic) do |f| %>
 		<%= f.hidden_field :parent_id %>
-		<fieldset>
-			<%= f.label :title %>
-			<%= f.text_field :title, :class => "input_message" %>
-		</fieldset>
 		<fieldset>
 			<%= f.label :content %>
 			<%= f.text_area :content, :class => "text_message" %>

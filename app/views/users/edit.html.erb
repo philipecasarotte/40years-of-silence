@@ -1,0 +1,14 @@
+<div id="singleBox">
+	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
+	<div class="contentCMS">
+	<h2>Editing your account</h2>
+	<% @user.password = @user.password_confirmation = nil %>
+
+	<%= error_messages_for :user %>
+	<% form_for :user, :url => user_path(@user), :html => { :method => :put } do |f| -%>
+		<%= render :partial => 'form', :locals=>{ :f => f } %>
+		<p><%= submit_tag 'Update' %></p>
+	<% end -%>
+	</div>
+	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+</div>

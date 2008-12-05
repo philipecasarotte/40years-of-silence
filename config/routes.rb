@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :photos
+  map.resource :session
 
   map.gallery '/gallery/:id', :controller => 'galleries', :action => 'show'
   map.gallery '/press/:id', :controller => 'presses', :action => 'show'
