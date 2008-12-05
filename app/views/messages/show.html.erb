@@ -13,6 +13,8 @@
 		  <h2 class="titleReply"><%= h(@message.title) %></h2>
 		<blockquote><%= simple_format(@message.content) %></blockquote>
 		<% unless @message.parent %>
+		
+			<% if @message.children.size > 0 %>
 		  <table id="replies" cellspacing="0" class="replies_table" width="100%">
 			<tr>
 			  <th class="left_text">Replies</th>
@@ -41,6 +43,7 @@
 				</td>
 			</tr>
 		  </table>
+		<% end %>
 		<% end %>
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
