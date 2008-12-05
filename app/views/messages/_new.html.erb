@@ -2,7 +2,7 @@
 	<%= image_tag 'content/top_menu_rouded.png', :size => "252x15" %>
 	<ul>
 		<%  if logged_in? && current_user %>
-		<li><%= link_to 'Back to Messages', @topic %></li>
+		<li><%= link_to 'Back to posts', @topic %></li>
 		<% end %>
 		<%= render :partial => 'topics/login' %>
 	</ul>

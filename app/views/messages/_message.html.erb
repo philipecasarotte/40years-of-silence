@@ -4,7 +4,7 @@
 		<%  if logged_in? && current_user %>
 		<li><%= content_tag :p, link_to('Add a reply', new_reply_path(@topic, @message)) %></li>
 		<% end %>
-		<li><%= link_to "Back to Messages", topic_path(@topic) %></li>
+		<li><%= link_to "Back to posts", topic_path(@topic) %></li>
 		<%= render :partial => 'topics/login' %>
 	</ul>
 	<%= image_tag 'content/bottom_menu_rouded.png', :size => "252x15" %>	

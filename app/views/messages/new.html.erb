@@ -3,10 +3,10 @@
 	<%= render :partial => 'new' %>
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
 	<div id="new_message">
-		<h1>New Message in <%= h @topic.title %></h1>
+		<h1>New <%= params[:parent_id] ? "Reply" : "Post" %></h1>
 		<% form_for @message, :url => topic_messages_path(@topic) do |f| %>
 		<%= f.hidden_field :parent_id %>
-		<% if controller.action_name == "new" %>
+		<% unless params[:parent_id] %>
 		<fieldset>
 			<%= f.label :title %>
 			<%= f.text_field :title %>

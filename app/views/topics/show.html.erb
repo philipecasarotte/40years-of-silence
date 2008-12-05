@@ -4,12 +4,11 @@
 
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
 	<div>
-		<h1><%= h @topic.title %></h1>
-		<%= @topic.description.blank? ? content_tag(:p, 'No description given', :class => 'no-description') : simple_format(h(@topic.description)) %>
+		<h1>Posts</h1>
 
 		<table cellspacing="0" class="topics_table" width="100%">
 			<tr>
-				<th class="left_text">Messages</th>
+				<th class="left_text">Posts</th>
 				<th class="left_text">By</th>
 				<th class="right_text"># Replies</th>
 				<th class="right_text">Last Reply</th>
@@ -21,7 +20,7 @@
 					<%= link_to h(message.title), topic_message_path(@topic, message) %>
 				</td>
 				<td class="left_text">
-					<%= h(message.user.name) %>
+					<%= h(message.user.login) %>
 				</td>
 				<td class="counter right_text">
 					<%= message.children.count %>

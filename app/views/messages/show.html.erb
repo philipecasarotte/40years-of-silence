@@ -5,7 +5,6 @@
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
 	<div>
 		  <span>
-			<h1 class="message_h1"><%= link_to h(@topic.title), @topic %></h1>
 			<% if @message.parent %>
 			  <%= link_to h(@message.parent.title), topic_message_path(@topic, @message.parent) %> &gt;
 			<% end %>
