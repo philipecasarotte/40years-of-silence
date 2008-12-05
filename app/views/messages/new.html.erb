@@ -7,6 +7,10 @@
 		<% form_for @message, :url => topic_messages_path(@topic) do |f| %>
 		<%= f.hidden_field :parent_id %>
 		<fieldset>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</fieldset>
+		<fieldset>
 			<%= f.label :content %>
 			<%= f.text_area :content, :class => "text_message" %>
 		</fieldset>

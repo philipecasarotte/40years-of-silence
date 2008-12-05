@@ -13,9 +13,10 @@
 				<th class="left_text">By</th>
 				<th class="right_text"># Replies</th>
 				<th class="right_text">Last Reply</th>
+				<th>&nbsp;</th>
 			</tr>
 				<% @topic.messages.children_of(nil).by_recency.each_with_index do |message, i| %>
-			<tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
+			<tr class="<%= cycle('bgBlack','')%>">
 				<td class="left_text">
 					<%= link_to h(message.title), topic_message_path(@topic, message) %>
 				</td>
@@ -32,7 +33,7 @@
 				</td>
 					<% if logged_in? and current_user.administrator? %>
 				<td>
-					<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
+					<%= link_to image_tag ('buttons/bot_closeX.gif',:alt => "Close", :title => "Close")+" Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
 				</td>
 				<% end %>
 			</tr>
