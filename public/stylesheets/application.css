@@ -111,7 +111,7 @@ body.transcript #singleBox {width:500px;margin:0 10px 0 0; padding:0;}
 /*Footer Section*/
 #footer {float:left;width:940px;padding-bottom:20px;margin-top:20px;}
 #footer a {text-decoration:none;}
-#footer ul {margin:0 auto 0 auto;width:500px;}
+#footer ul {margin:0 auto 0 auto;width:480px;}
 #footer ul li {float:left;display:inline;color:#72450E;}
 #footer ul li a {color:#72450E;margin:0 5px;}
 #footer ul li a:hover {color:#666;}

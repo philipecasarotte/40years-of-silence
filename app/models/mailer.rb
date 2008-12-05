@@ -15,7 +15,7 @@ class Mailer < ActionMailer::Base
   }
   
   def contact(params)
-    @recipients = 'ricardo@dburnsdesign.com' 
+    @recipients = 'yee@elementalproductions.org' 
     # @recipients = SITE_EMAIL     # UNCOMMENT THIS IN PRODUCTION!
     @from = params[:email] if params[:email]
     headers['Reply-To'] = params[:email] if params[:email]
