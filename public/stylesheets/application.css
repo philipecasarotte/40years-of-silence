@@ -150,6 +150,9 @@ blockquote p {margin: 0 0 10px 0; line-height: 1.5em;}
 #new_message label            {margin:5px 0;}
 #new_message .input_message   {width:300px;height:24px;}
 #new_message .text_message    {width:500px;height:120px;}
-#new_message .submit_bt       {margin-left:430px;}
+#new_message .submit_bt       {margin-left:450px;}
 .message_h1 a                 {color:#ccc; text-decoration:none;}
 .message_h1 a:hover           {color:#ECAF22;}
+
+/* user */
+.user div {display:none;}

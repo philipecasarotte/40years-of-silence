@@ -1,23 +1,18 @@
-<div id="singleBox">
+<div id="doubleBox">
+	<%= render :partial => "new" %>
 	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
+
 	<div class="contentCMS">
 		<h2>Log In</h2>
 		<% form_tag session_path do -%>
-		<p><%= label_tag 'login' %>
-		<%= text_field_tag 'login', @login %></p>
+			<p><%= label_tag 'login' %>
+			<%= text_field_tag 'login', @login %></p>
 
-		<p><%= label_tag 'password' %>
-		<%= password_field_tag 'password', nil %></p>
+			<p><%= label_tag 'password' %>
+			<%= password_field_tag 'password', nil %></p>
 
-		<!-- Uncomment this if you want this functionality
-		<p><%= label_tag 'remember_me', 'Remember me' %>
-		<%= check_box_tag 'remember_me', '1', @remember_me %></p>
-		-->
-
-		<p><%= submit_tag 'Log in' %></p>
+			<p><%= submit_tag 'Log in' %></p>
 		<% end -%>
-
-		<p><%= link_to "Or sign up right now!", signup_path %></p>
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>
