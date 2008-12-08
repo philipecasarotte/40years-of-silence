@@ -14,7 +14,7 @@
 		<div id="galleryMenu">
 			<ul>
 				<% @photos.each do |photo| %>
-					<li><%= link_to_remote image_tag(photo.image.url(:thumb)), 
+					<li><%= link_to_remote image_tag(photo.image.url(:thumb), :size => "76x57"), 
 																:update=>"big", 
 																:url=>photo_path(photo),
 																:loading=>"$('.loading').show()",

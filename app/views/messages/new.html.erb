@@ -5,20 +5,21 @@
 	<div id="new_message">
 		<h1>New <%= params[:parent_id] ? "Reply" : "Post" %></h1>
 		<% form_for @message, :url => topic_messages_path(@topic) do |f| %>
-		<%= f.hidden_field :parent_id %>
-		<% unless params[:parent_id] %>
-		<fieldset>
-			<%= f.label :title %>
-			<%= f.text_field :title %>
-		</fieldset>
-		<% end %>
-		<fieldset>
-			<%= f.label :content %>
-			<%= f.text_area :content, :class => "text_message" %>
-		</fieldset>
-		<div>
+			<%= f.hidden_field :parent_id %>
+			<% unless params[:parent_id] %>
+				<fieldset>
+					<%= f.label :title %>
+					<%= f.text_field :title %>
+				</fieldset>
+			<% end %>
+			<fieldset>
+				<%= f.label :content %>
+				<%= f.text_area :content, :class => "text_message" %>
+			</fieldset>
+				
+			<br>
 			<%= content_tag :button, 'Create', :type => 'submit', :class=>"submit_bt" %>
-		</fieldset>
+			</fieldset>
 		<% end %>
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
