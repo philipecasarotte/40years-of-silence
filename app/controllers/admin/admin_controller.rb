@@ -10,7 +10,7 @@ class Admin::AdminController < ResourceController::Base
 	end
 	
 	def is_administrator?
-	  access_denied unless current_user && current_user.administrator?
+	  access_denied unless current_user && current_user.class.eql?(User)
 	end
 	
 end
