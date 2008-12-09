@@ -24,10 +24,14 @@
 						<table width="100%">
 						  <tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
 							<th class="name">
-							  <%= h(message.user.login) %> - 
-							  <span title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
-							    <%= time_ago_in_words(message.created_at) %> ago
+							  <span class="message-title" title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
+							    <%= h(message.user.login) %> - <%= time_ago_in_words(message.created_at) %> ago
 							  </span>
+								<% if current_user.administrator %>
+								<span class="delete">
+									<%= link_to image_tag ('buttons/bot_closeX.gif',:alt => "Close", :title => "Close")+" Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>	
+								</span>
+								<% end %>
 							</th>				
 						  </tr>
 						  <tr>

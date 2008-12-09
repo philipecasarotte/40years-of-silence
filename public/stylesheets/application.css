@@ -139,7 +139,9 @@ h2.titleReply			  {color:#ECAF22; font-size:14px; margin-bottom:6px;}
 .replies_table            {margin:15px 0;}
 .replies_table table      {margin:20px 0;}
 .replies_table th         {padding:6px;border-bottom:1px solid #333; border-top:1px solid #333; color:#ECAF22;}
-.replies_table th.name	  {background-color:#0D0D0D; text-align:left; border-top:none;}
+.replies_table th.name	  {background-color:#0D0D0D; text-align:left; border-top:none; position: relative;}
+.replies_table th.name .delete {float: right;}
+.replies_table th.name .message-title {float: left;}
 .replies_table td         {padding:0;vertical-align:top;line-height:150%;}
 .replies_table td a       {color:#ccc;text-decoration:none;}
 .replies_table td a:hover {color:#ECAF22;}
