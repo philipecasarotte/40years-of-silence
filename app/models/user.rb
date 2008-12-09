@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
     administrator
   end
 
+  def recovery_password!
+    recovered_password = self.password = self.password_confirmation = Digest::SHA1.hexdigest(rand.to_s)[0..8]
+    save!
+    
+    Mailer.deliver_forgot(self, recovered_password)
+  end
   protected
     
 

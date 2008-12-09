@@ -37,4 +37,16 @@ class UsersController < ApplicationController
       render :action=>:new
     end
   end
+  
+  def recovery
+    begin
+      @user = Member.find_by_email(params[:user][:email])
+      @user.recovery_password!
+      flash[:notice] = "Password successfully changed"
+    rescue
+      flash[:error] = "Email not found"
+    end
+    
+    redirect_to login_path
+  end
 end

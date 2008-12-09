@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
 
   map.resources :presses
-  map.resources :users
+  map.resources :users, :collection=>{ :forgot=>:get, :recovery=>:post }
   
   map.namespace :admin do |admin|
     admin.logout '/logout', :controller => 'sessions', :action => 'destroy'
