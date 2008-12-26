@@ -3,10 +3,7 @@
 <head>
 	<title>.:: <%= SITE_NAME %> ::. </title>
 	<%= stylesheet_link_tag "application" %>
-	
-	<!--[if IE 6]>
-		<%= stylesheet_link_tag "application_ie6" %>
-	<![endif]-->
+	<!--[if IE 6]><%= stylesheet_link_tag "application_ie6" %><![endif]-->
 	
 	<link href="/images/favicon.ico" type="image/x-icon" rel="icon"/>
 	<link href="/images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
@@ -16,36 +13,55 @@
 </head>
 <body>
 <div id="main">
-	<%= link_to image_tag ('elemental_productions.png', :width => 265, :height => 94, :alt => "Elemental Productions", :title => "Elemental Productions", :id => "logo"), '/' %>
+	<%= link_to image_tag ('elemental_productions.png', :width => 265, :height => 94, :alt => "40 Years of Silence", :title => "40 Years of Silence", :id => "logo"), '/' %>
 	<ul id="menu">
-	    <li><%= link_to image_tag ('menu/bot_home.gif', :width => 49, :height => 26, :alt => "Home", :title => "Home"), '/' %></li>
-	    <li><%= link_to image_tag ('menu/bot_trailer.gif', :width => 73, :height => 26, :alt => "Trailer", :title => "Trailer"), '/page/trailer' %></li>
-	    <li><%= link_to image_tag ('menu/bot_film.gif', :width => 50, :height => 26, :alt => "Film", :title => "Film"), '/page/film' %></li>
-	    <li><%= link_to image_tag ('menu/bot_filmakers.gif', :width => 93, :height => 26, :alt => "Filmmakers", :title => 'Filmmakers'), '/page/filmmakers' %></li>
-	    <li><%= link_to image_tag ('menu/bot_forums.gif', :width => 52, :height => 26, :alt => "Forums", :title => "Forums"), '/topics' %></li>
-	    <li><%= link_to image_tag ('menu/bot_gallery.gif', :width => 73, :height => 26, :alt => "Gallery", :title => "Gallery"), '/gallery' %></li>
-	    <li><%= link_to image_tag ('menu/bot_press.gif', :width => 58, :height => 26, :alt => "Press", :title => "Press"), '/press' %></li>
-	    <li><%= link_to image_tag ('menu/bot_resources.gif', :width => 93, :height => 26, :alt => "Resources", :title => "Resources"), '/page/indonesian-timeline' %></li>
-	    <li><%= link_to image_tag ('menu/bot_screening.gif', :width => 93, :height => 26, :alt => "Screening", :title => "Screening"), '/page/screening' %></li>
-	    <li><%= link_to image_tag ('menu/bot_contact.gif', :width => 73, :height => 26, :alt => "Contact", :title => "Contact"), '/page/contact' %></li>
+		<li><%= link_to "Home", '/' %></li>
+		<li><%= link_to "Trailer", '/page/trailer', :id => "menu_trailer" %></li>
+		<li>
+			<%= link_to "Film", page_path(:permalink => "synopsis"), :id => "menu_film" %>
+			<ul>
+				<li><%= link_to "Synopsis", page_path(:permalink => "synopsis") %></li>
+				<li><%= link_to "Character Excerpts", page_path(:permalink => "character") %></li>
+				<li>Expert Excerpts</li>
+				<li>Music</li>
+				<li>FAQ</li>
+			</ul>
+		</li>
+		<li>
+			<%= link_to "Crew", page_path(:permalink => "directors-statement"), :id => "menu_crew" %>
+			<ul>
+				<li>Director's Statement</li>
+				<li>Director's Biography</li>
+				<li>Crew Biographies</li>
+			</ul>
+		</li>
+		<li><%= link_to "Forum", '/topics', :id => "menu_forum" %></li>
+		<li>
+			<%= link_to "Gallery", '/gallery', :id => "menu_gallery" %>
+			<ul>
+				<li>Characters</li>
+				<li>Indonesia</li>
+				<li>Production Stills</li>
+			</ul>
+		</li>
+		<li>
+			<%= link_to "Resources", page_path(:permalink => "indonesian-timeline"), :id => "menu_resources" %>
+			<ul>
+				<li>Indonesian History Timeline</li>
+				<li>Genocide &amp; Mass-killing Timeline</li>
+				<li>Post Traumatic Stress Disorder</li>
+				<li>Study Guide</li>
+				<li>Links</li>
+			</ul>
+		</li>
+		<li><%= link_to "Press", '/press', :id => "menu_press" %></li>
+		<li><%= link_to "Screening", page_path(:permalink => "screening"), :id => "menu_screening" %></li>
+		<li><%= link_to "Contact", page_path(:permalink => "contact"), :id => "menu_contact" %></li>
 	</ul>
-	<div id="content">
+	<div id="container">
 		<%= yield %>
 	</div>
-	<div id="footer">
-		<ul>
-		    <li><%= link_to "Home", "/" %>|</li>
-		    <li><%= link_to "Trailer", "/page/trailer" %>|</li>
-			<li><%= link_to "Film", "/page/film" %>|</li>
-		    <li><%= link_to "Filmmakers", "/page/filmmakers" %>|</li>
-		    <li><%= link_to "Blog", "/topics" %>|</li>
-		    <li><%= link_to "Gallery", "/gallery" %>|</li>
-		    <li><%= link_to "Press", "/press" %>|</li>
-		    <li><%= link_to "Resources", "/page/indonesian-timeline" %>|</li>
-		    <li><%= link_to "Contact", "/page/contact" %></li>
-		</ul>
-		<p>&copy; Copyright Elemental Productions. <%= link_to "Santa Monica Website Design", 'http://www.dburnsdesign.com', :target => '_blank' %> by DBurns Design </p>
-	</div>
+	<p id="footer">&copy; Copyright Elemental Productions. <%= link_to "Santa Monica Website Design", 'http://www.dburnsdesign.com', :target => '_blank' %> by DBurns Design </p>
 </div>
 </body>
 </html>

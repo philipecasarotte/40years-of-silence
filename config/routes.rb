@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.gallery '/gallery/:id', :controller => 'galleries', :action => 'show'
   map.gallery '/press/:id', :controller => 'presses', :action => 'show'
+  map.page '/page/body/:permalink', :controller => 'pages', :action => 'body'
   map.page '/page/:permalink', :controller => 'pages', :action => 'show'
   map.root :controller => 'pages', :action => 'show', :permalink => 'home'
 

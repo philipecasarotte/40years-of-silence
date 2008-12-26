@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   before_create :make_permalink
 
   has_and_belongs_to_many :parents, :class_name => "Page", :join_table => "pages_parents", :association_foreign_key => "parent_id", :foreign_key => "page_id"
-  has_and_belongs_to_many :children, :class_name => "Page", :join_table => "pages_parents", :association_foreign_key => "page_id", :foreign_key => "parent_id"
+  has_and_belongs_to_many :children, :class_name => "Page", :join_table => "pages_parents", :association_foreign_key => "page_id", :foreign_key => "parent_id", :order => "title"
   has_meta_data
   
   validates_presence_of :title

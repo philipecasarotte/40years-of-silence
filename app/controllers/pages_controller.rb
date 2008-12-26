@@ -31,17 +31,13 @@ class PagesController < ApplicationController
       return false
     end
 	
-    if params[:permalink] == 'trailer'
-	    body = render_to_string(:action => fname, :layout => 'trailer')
-	elsif params[:permalink] == 'home'
-	    body = render_to_string(:action => fname, :layout => 'flash')
-	elsif params[:permalink] == 'degung' or params[:permalink] == 'kereta' or params[:permalink] == 'budi' or params[:permalink] == 'lanny'
-		body = render_to_string(:action => fname, :layout => 'popup')
-	elsif params[:permalink] == 'transcript'
-		body = render_to_string(:action => fname, :layout => 'popup_transcript')
-	else
-		body = render_to_string(:action => fname)
-	end
+    if params[:permalink] == 'home'
+      body = render_to_string(:action => fname, :layout => 'flash')
+    elsif params[:permalink] == 'transcript'
+      body = render_to_string(:action => fname, :layout => 'popup_transcript')
+    else
+      body = render_to_string(:action => fname)
+    end
 	
     while(m = body.match(/%const\[([A-Z0-9\._:]+?)\]%/))
       body.sub!("%const[#{m[1]}]%", Module.const_get(m[1]))
@@ -52,6 +48,11 @@ class PagesController < ApplicationController
     
 	render :text => body
     
+  end
+
+  def body
+    @page = Page.find_by_permalink params[:permalink]
+    render :action => "character_body", :layout => false
   end
 
   def contact
