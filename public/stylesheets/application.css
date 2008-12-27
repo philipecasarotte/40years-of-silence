@@ -58,10 +58,12 @@ body.home #main {float:left;width:100%;}
 /* directors_statements */
 .directors_statements .content_cms {margin-top:10px;}
 
+/* transcript */
+.transcript #content {float:none; width:auto; padding:0 20px 20px 0;}
+
 /* gallery */
 .gallery #content {position:relative;}
 .gallery .loading {display:none; position:absolute; top:170px; left:170px;}
-
 
 /*CMS*/
 .content_cms {text-align:justify;}
