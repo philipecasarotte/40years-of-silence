@@ -8,4 +8,4 @@
 </div>
 <% content_for :head do -%>
 	<%= javascript_tag "$(function(){set_menu('#{@page.parents[0].permalink}');});" %>
-<% end -%>
+<% end rescue "" -%>

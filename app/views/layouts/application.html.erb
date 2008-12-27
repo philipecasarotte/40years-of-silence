@@ -22,7 +22,7 @@
 			<ul>
 				<li><%= link_to "Synopsis", page_path(:permalink => "synopsis") %></li>
 				<li><%= link_to "Character Excerpts", page_path(:permalink => "character") %></li>
-				<li><%= link_to "Expert Excerpts", page_path(:permalink => "expoert") %></li>
+				<li><%= link_to "Expert Excerpts", page_path(:permalink => "expert") %></li>
 				<li><%= link_to "Music", page_path(:permalink => "music") %></li>
 				<li><%= link_to "FAQ", page_path(:permalink => "faq") %></li>
 			</ul>
@@ -37,11 +37,11 @@
 		</li>
 		<li><%= link_to "Forum", '/topics', :id => "menu_forum" %></li>
 		<li>
-			<%= link_to "Gallery", '/gallery', :id => "menu_gallery" %>
+			<%= link_to "Gallery", gallery_path(:permalink => "characters"), :id => "menu_gallery" %>
 			<ul>
-				<li><%= link_to "Characters", "#" %></li>
-				<li><%= link_to "Indonesia", "#" %></li>
-				<li><%= link_to "Production Stills", "#" %></li>
+				<li><%= link_to "Characters", gallery_path(:permalink => "characters") %></li>
+				<li><%= link_to "Indonesia", gallery_path(:permalink => "indonesia") %></li>
+				<li><%= link_to "Production Stills", gallery_path(:permalink => "crew") %></li>
 			</ul>
 		</li>
 		<li>

@@ -21,16 +21,13 @@ textarea {height:90px;}
 #logo       {float:left;}
 #menu       {margin:40px 0 0 16px; float:left;}
 #menu li    {float:left; list-style:none; margin-left:14px; position:relative; padding:6px;}
-#menu ul    {display:none; position:absolute; width:auto; top:28px; left:0;}
+#menu ul    {display:none; position:absolute; width:auto; top:28px; left:0; z-index:1;}
 #menu ul li {float:none; list-style:none; margin:0; white-space:nowrap;}
-
 #menu a     {text-decoration:none; color:#CCC; font-size:14px;}
 #menu a:hover {color:#DFA94F;}
-
 #menu .selected a {color:#DFA94F;}
 #menu .selected li a {color:#ccc;}
 #menu .selected li a:hover {color:#DFA94F;}
-
 #menu .hover,
 #menu .hover ul {background:URL(../images/background/transparent.png);}
 #menu .hover li {background:none;}
@@ -58,9 +55,13 @@ body.home #main {float:left;width:100%;}
 /* character */
 .character .content_cms {margin-top:15px; width:483px;}
 
-/* crew */
 /* directors_statements */
 .directors_statements .content_cms {margin-top:10px;}
+
+/* gallery */
+.gallery #content {position:relative;}
+.gallery .loading {display:none; position:absolute; top:170px; left:170px;}
+
 
 /*CMS*/
 .content_cms {text-align:justify;}

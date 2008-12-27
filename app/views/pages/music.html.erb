@@ -9,3 +9,6 @@
 		<%= @page.body %>
 	</div>
 </div>
+<% content_for :head do -%>
+	<%= javascript_tag "$(function(){set_menu('film');});" %>
+<% end -%>

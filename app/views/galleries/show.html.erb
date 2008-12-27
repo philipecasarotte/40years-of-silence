@@ -1,17 +1,7 @@
-<div id="doubleBox">
-	<div id="menuLeft">
-		<%= image_tag 'content/top_menu_rouded.png', :size => "252x15" %><%
-    %><ul id="galleriesMenu">
-		  <% @galleries.each do |gallery| %>
-				<li><%= link_to gallery.title, { :action=>:show, :id=>gallery }, :class=>gallery.permalink %></li>
-			<% end %>
-		</ul>
-		<%= image_tag 'content/bottom_menu_rouded.png', :size => "252x15" %>	
-	</div>
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
-    %><div class="gallery">
-		<h1><%= image_tag 'titles/title_gallery.gif', :alt => "Gallery", :title => "Gallery" %></h1>
-		<div id="galleryMenu">
+<div class="gallery">
+	<div id="sub_nav">
+		<button class="prev">prev</button>
+		<div class="list">
 			<ul>
 				<% @photos.each do |photo| %>
 					<li><%= link_to_remote image_tag(photo.image.url(:thumb), :size => "76x57"), 
@@ -21,11 +11,18 @@
 																:complete=>"$('.loading').hide()" %></li>
 				<% end %>
 			</ul>
-			<%= will_paginate @photos, :prev_label=>"<", :next_label=>">" %>
-		</div>		
-		<%= image_tag 'loading.gif', :alt => "Loading", :title => "Loading", :class => 'loading' %>
-		<div id="big"><%= render :partial => 'photos/photo' %></div>
-		<% # <div id="big"><%= image_tag @photo.image.url(:big), :alt=>@photo.title, :title=>@photo.title % ></div> %>
+		</div>
+		<button class="next">next</button>
 	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+	<div id="content">
+		<h1><%= @gallery.title %></h1>
+		<div class="content_cms">
+			<div id="big"><%= render :partial => 'photos/photo' %></div>
+			<%= image_tag 'loading.gif', :alt => "Loading", :title => "Loading", :class => 'loading' %>
+		</div>
+	</div>
 </div>
+<% content_for :head do	%>
+	<%= javascript_tag "$(function(){set_menu('gallery');});" %>
+	<%= javascript_include_tag "plugins/jcarousellite", "gallery/default" %>
+<% end -%>

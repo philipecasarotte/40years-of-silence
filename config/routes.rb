@@ -28,8 +28,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos
   map.resource :session
 
-  map.gallery '/gallery/:id', :controller => 'galleries', :action => 'show'
-  map.gallery '/press/:id', :controller => 'presses', :action => 'show'
+  map.gallery '/gallery/:permalink', :controller => 'galleries', :action => 'show'
+  map.press '/press/:id', :controller => 'presses', :action => 'show'
   map.page '/page/body/:permalink', :controller => 'pages', :action => 'body'
   map.page '/page/:permalink', :controller => 'pages', :action => 'show'
   map.root :controller => 'pages', :action => 'show', :permalink => 'home'

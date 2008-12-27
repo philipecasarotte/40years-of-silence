@@ -6,10 +6,6 @@
 	<div class="content_cms"><%= @page.body %></div>
 </div>
 <% content_for :head do -%>
-	<% javascript_tag do -%>
-		$(function(){
-			$("#menu_crew").addClass("selected");
-		});
-	<% end -%>
+	<%= javascript_tag "$(function(){set_menu('crew');});" %>
 	<%= javascript_include_tag "plugins/flashembed.min", "page/directors_statements" %>
 <% end -%>
