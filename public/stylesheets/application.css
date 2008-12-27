@@ -65,6 +65,19 @@ body.home #main {float:left;width:100%;}
 .gallery #content {position:relative;}
 .gallery .loading {display:none; position:absolute; top:170px; left:170px;}
 
+/* contact */
+.contact form{width:377px; float:left; border-right:1px solid #6E2301;}
+.contact label {margin:15px 0 5px;}
+.contact input,
+.contact textarea {width:353px;}
+.contact .submit {text-align:right; margin:10px 18px 0 0;}
+.contact .submit input {width:auto;}
+.contact label.error {color:red; font-weight:normal; margin:0;}
+
+.contact .content_cms {float:right;width:305px;}
+.contact .content_cms li {list-style-image:url(../images/bullets/fire.png); margin-bottom:15px; color:#958367;}
+.contact .content_cms li a {color:#958367; text-decoration:none;}
+.contact .content_cms li a:hover {text-decoration:underline;}
 /*CMS*/
 .content_cms {text-align:justify;}
 .content_cms h1 {margin-bottom:5px;font-size:16px;}
