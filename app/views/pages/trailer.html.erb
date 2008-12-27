@@ -5,10 +5,6 @@
 	<div id="videoPlayer">&nbsp;</div>
 </div>
 <% content_for :head do -%>
-	<% javascript_tag do -%>
-		$(function(){
-			$("#menu_trailer").addClass("selected");
-		});
-	<% end -%>
+	<%= javascript_tag "$(function(){set_menu('trailer');});" %>
 	<%= javascript_include_tag "plugins/flashembed.min", "page/trailer" %>
 <% end -%>

@@ -8,7 +8,7 @@
 	<link href="/images/favicon.ico" type="image/x-icon" rel="icon"/>
 	<link href="/images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
 
-	<%= javascript_include_tag :defaults, 'plugins/ifixpng', 'plugins/flash', 'film/menu' %>
+	<%= javascript_include_tag :defaults, 'plugins/ifixpng', 'plugins/flash', 'film/menu', "default" %>
 	<%= yield :head %>
 </head>
 <body>
@@ -22,36 +22,36 @@
 			<ul>
 				<li><%= link_to "Synopsis", page_path(:permalink => "synopsis") %></li>
 				<li><%= link_to "Character Excerpts", page_path(:permalink => "character") %></li>
-				<li>Expert Excerpts</li>
-				<li>Music</li>
-				<li>FAQ</li>
+				<li><%= link_to "Expert Excerpts", page_path(:permalink => "expoert") %></li>
+				<li><%= link_to "Music", page_path(:permalink => "music") %></li>
+				<li><%= link_to "FAQ", page_path(:permalink => "faq") %></li>
 			</ul>
 		</li>
 		<li>
 			<%= link_to "Crew", page_path(:permalink => "directors-statement"), :id => "menu_crew" %>
 			<ul>
-				<li>Director's Statement</li>
-				<li>Director's Biography</li>
-				<li>Crew Biographies</li>
+				<li><%= link_to "Director's Statement", page_path(:permalink => "directors-statement") %></li>
+				<li><%= link_to "Director's Biography", page_path(:permalink => "directors-biography") %></li>
+				<li><%= link_to "Crew Biographies", page_path(:permalink => "crew-biographies") %></li>
 			</ul>
 		</li>
 		<li><%= link_to "Forum", '/topics', :id => "menu_forum" %></li>
 		<li>
 			<%= link_to "Gallery", '/gallery', :id => "menu_gallery" %>
 			<ul>
-				<li>Characters</li>
-				<li>Indonesia</li>
-				<li>Production Stills</li>
+				<li><%= link_to "Characters", "#" %></li>
+				<li><%= link_to "Indonesia", "#" %></li>
+				<li><%= link_to "Production Stills", "#" %></li>
 			</ul>
 		</li>
 		<li>
 			<%= link_to "Resources", page_path(:permalink => "indonesian-timeline"), :id => "menu_resources" %>
 			<ul>
-				<li>Indonesian History Timeline</li>
-				<li>Genocide &amp; Mass-killing Timeline</li>
-				<li>Post Traumatic Stress Disorder</li>
-				<li>Study Guide</li>
-				<li>Links</li>
+				<li><%= link_to "Indonesian History Timeline", page_path(:permalink => "indonesion-history_timeline") %></li>
+				<li><%= link_to "Genocide &amp; Mass-killing Timeline", page_path(:permalink => "genocide_and_mass-killing-timeline") %></li>
+				<li><%= link_to "Post Traumatic Stress Disorder", page_path(:permalink => "post-troumatic-stress-discorder") %></li>
+				<li><%= link_to "Study Guide", page_path(:permalink => "study-guide") %></li>
+				<li><%= link_to "Links", page_path(:permalink => "links") %></li>
 			</ul>
 		</li>
 		<li><%= link_to "Press", '/press', :id => "menu_press" %></li>
