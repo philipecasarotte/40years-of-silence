@@ -2,7 +2,7 @@
 
 <%= error_messages_for :download %>
 
-<% form_for(:download, :url => object_url, :html => { :method => :put }) do |f| %>
+<% form_for(:download, :url => object_url, :html => { :method => :put, :multipart=>true  }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <p>
     <%=submit_tag "Update"%>

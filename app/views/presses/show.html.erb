@@ -1,7 +1,9 @@
 <% @title = 'Press' %>
 <div class="contentCMS">
-	<h1 style="clear:both;width:590px;"><%= @press.title %></h1>
+	<h1 style="clear:both;"><%= @press.title %></h1>
+	<%= image_tag(@press.cover.url(:image), :align => 'right') %>
 	<%= @press.body %>
+	<p class="nav"><%= link_to "&laquo; Back", presses_path %></p>
 </div>
 <% content_for :head do -%>
 	<%= javascript_tag "$(function(){set_menu('press');});" %>

@@ -7,6 +7,7 @@ body.home {margin:0;}
 a {color:white;}
 
 h1 {margin-bottom:12px; font-size:16px; font-weight:normal; color:#DFA94F;}
+p.nav {width:100%;clear:both;font-size:11px;color:white;}
 
 label    {display:block; margin-top:5px; font-weight:bold;}
 input,

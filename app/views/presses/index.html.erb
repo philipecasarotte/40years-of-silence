@@ -1,14 +1,20 @@
 <% @title = 'Press' %>
 <div class="contentCMS">
-	<h1 style="clear:both;width:590px;"><%= image_tag 'titles/title_press.gif', :alt => "Press", :title => "Press" %></h1>
+	<h1 style="clear:both;width:590px;">Presses</h1>
 	<% if @presses.size > 0 %>
 	<dl>
 		<% @presses.each do |press| %>
-			<dt><%= link_to image_tag(press.cover.url(:thumb)), presses_path %></dt>
+			<dt><%= link_to image_tag(press.cover.url(:thumb)), :action=>'show', :id=>press.id %></dt>
 			<dd><%= press.body %></dd>
 		<% end %>
 	<dl>
-	<h1 style="margin-top:20px;clear:both;width:590px;"><%= image_tag 'titles/title_download.gif', :alt => "Download", :title => "Download" %></h1>
+	<h1 style="margin-top:20px;clear:both;width:590px;">Downloads</h1>
+	<dl>
+		<% @downloads.each do |download| %>
+			<dt><%= link_to image_tag('bullets/bullet_pdf.gif'), download.pdf.url %></dt>
+			<dd><%= download.body %></dd>
+		<% end %>
+	<dl>
 	<% else %>
 		<p>Coming soon.</p>
 	<% end %>
