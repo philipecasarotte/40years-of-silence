@@ -71,5 +71,5 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-Paperclip.options[:image_magick_path] = '/opt/local/bin'
+#Paperclip.options[:image_magick_path] = '/opt/local/bin'
 require 'order'
