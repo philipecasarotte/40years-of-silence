@@ -4,10 +4,8 @@
 	<h1><%= h @page.title %></h1>
 	<div class="content_cms">
 		<%= @page.body %>
-		<div id="flashTimeline"></div>
 	</div>
 </div>
 <% content_for :head do -%>
-	<%= javascript_tag "$(function(){set_menu('resources');});" %>
-	<%= javascript_include_tag "page/indonesia" %>
-<% end -%>
+	<%= javascript_tag "$(function(){set_menu('screening');});" %>
+<% end rescue "" -%>

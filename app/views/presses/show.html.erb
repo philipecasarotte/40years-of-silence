@@ -23,3 +23,6 @@
 	</div>
 	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>
+<% content_for :head do -%>
+	<%= javascript_tag "$(function(){set_menu('press');});" %>
+<% end -%>
