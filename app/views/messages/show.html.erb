@@ -13,7 +13,10 @@
 		  <blockquote><%= simple_format(@message.content) %></blockquote>
 			<p>Posted by <%= h(@message.user.login) %> on <%= @message.created_at.time.to_formatted_s(:short) %></p>
 			<%  if logged_in? && current_user %>
-				<%= content_tag :p, link_to('Add a reply', new_reply_path(@topic, @message)) %>
+				<p>
+					<%= link_to('Add a reply', new_reply_path(@topic, @message)) %>
+					<%= link_to "Delete", topic_message_path(@topic, @message), :method=>:delete, :confirm=>"Are you sure?" if logged_in? and current_user.administrator? %>
+				</p>
 			<% end %>
 
 		<% unless @message.parent %>
@@ -33,11 +36,9 @@
 							    Posted by <%= h(message.user.login) %> on <%= message.created_at.time.to_formatted_s(:short) %>
 							  </span>
 								<% if current_user.administrator %>
-									<%  if logged_in? && current_user.administrator %>
 									<span class="delete">
 										<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
 									</span>
-									<% end %>
 								<% end %>
 							</th>				
 						  </tr>
