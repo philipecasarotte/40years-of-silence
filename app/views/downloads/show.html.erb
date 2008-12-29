@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong><%=h @download.title %>
+</p>
+<p>
+  <strong>Body:</strong><%=h @download.body %>
+</p>
+<p>
+  <strong>Pdf file name:</strong><%=h @download.pdf_file_name %>
+</p>
+<p>
+  <strong>Pdf content type:</strong><%=h @download.pdf_content_type %>
+</p>
+<p>
+  <strong>Pdf file size:</strong><%=h @download.pdf_file_size %>
+</p>
+<p>
+  <strong>Pdf updated at:</strong><%=h @download.pdf_updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_object_url %>
+|
+<%= link_to 'Back', collection_url %>

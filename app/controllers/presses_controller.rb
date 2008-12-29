@@ -1,5 +1,9 @@
 class PressesController < ApplicationController
-  def show
+  def index
     @presses = Press.all
+  end
+  
+  def show
+    @press = Press.find(params[:id])
   end
 end

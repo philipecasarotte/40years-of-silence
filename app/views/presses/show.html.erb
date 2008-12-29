@@ -1,27 +1,7 @@
 <% @title = 'Press' %>
-<div id="singleBox">
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %><%
-%><div class="contentCMS">
-		<h1 style="clear:both;width:590px;"><%= image_tag 'titles/title_press.gif', :alt => "Press", :title => "Press" %></h1>
-		<% if @presses.size > 0 %>
-		<dl>
-			<% @presses.each do |press| %>
-				<dt><%= link_to image_tag(press.cover.url(:thumb)),press.pdf.url %></dt>
-				<dd><%= press.description %></dd>
-			<% end %>
-		<dl>
-		<h1 style="margin-top:20px;clear:both;width:590px;"><%= image_tag 'titles/title_download.gif', :alt => "Download", :title => "Download" %></h1>
-		<dl>
-			<% @presses.each do |pdf| %>
-				<dt class="pdf"><%= image_tag 'bullets/bullet_pdf.gif', :alt => "PDF", :title => "PDF" %> <%= link_to pdf.title, pdf.pdf.url %></dt>
-				<dd class="pdf"><%= pdf.pdf_description %></dd>
-			<% end %>
-		<dl>
-		<% else %>
-			<p>Coming soon.</p>
-		<% end %>
-	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
+<div class="contentCMS">
+	<h1 style="clear:both;width:590px;"><%= @press.title %></h1>
+	<%= @press.body %>
 </div>
 <% content_for :head do -%>
 	<%= javascript_tag "$(function(){set_menu('press');});" %>
