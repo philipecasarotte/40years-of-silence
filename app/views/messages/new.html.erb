@@ -1,27 +1,30 @@
-<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
-<div id="doubleBox">
+<div id="sub_nav">
 	<%= render :partial => 'new' %>
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
-	<div id="new_message">
-		<h1>New <%= params[:parent_id] ? "Reply" : "Post" %></h1>
-		<% form_for @message, :url => topic_messages_path(@topic) do |f| %>
-			<%= f.hidden_field :parent_id %>
-			<% unless params[:parent_id] %>
-				<fieldset>
-					<%= f.label :title %>
-					<%= f.text_field :title %>
-				</fieldset>
-			<% end %>
-			<fieldset>
-				<%= f.label :content %>
-				<%= f.text_area :content, :class => "text_message" %>
-			</fieldset>
-				
-			<br>
-			<%= content_tag :button, 'Create', :type => 'submit', :class=>"submit_bt" %>
-			</fieldset>
-		<% end %>
-	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>
-<%= javascript_include_tag 'plugins/flashembed.min', 'page/directors_statements' %>
+<div id="content">
+	<h1>Forum</h1>
+	<div class="content_cms">
+		<div id="new_message">
+			<% if params[:parent_id]  %>
+				<h2 class="titleReply"><%= h(@message.title) %></h2>
+				<blockquote><%= simple_format(@message.parent.content) %></blockquote>
+			<% end %>
+			<h1>New <%= params[:parent_id] ? "Reply" : "Post" %></h1>
+			<% form_for @message, :url => topic_messages_path(@topic) do |f| %>
+				<%= f.hidden_field :parent_id %>
+				<% unless params[:parent_id] %>
+						<%= f.label :title %>
+						<%= f.text_field :title, :class => "text_message" %>
+				<% end %>
+					<%= f.label :content, 'Comments' %>
+					<%= f.text_area :content, :class => "text_message" %>
+				<br>
+				<%= content_tag :button, 'Create', :type => 'submit', :class=>"submit_bt" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+<% content_for :head do -%>
+	<%= javascript_include_tag 'plugins/flashembed.min', 'page/directors_statements' %>
+	<%= javascript_tag "$(function(){set_menu('forum');});" %>
+<% end -%>

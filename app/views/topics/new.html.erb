@@ -1,8 +1,6 @@
 <%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
-<div id="doubleBox">
 	<%= render :partial => 'new' %>
 
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
 	<div>
 		<h1>New Topic</h1>
 		<p><%= link_to 'Back to Topics', topics_path %></p>
@@ -20,8 +18,6 @@
 		</div>
 		<% end %>
 	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
-</div>
 <%= javascript_include_tag 'plugins/flashembed.min', 'page/directors_statements' %>
 <% content_for :head do -%>
 	<%= javascript_tag "$(function(){set_menu('forum');});" %>
