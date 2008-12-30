@@ -1,15 +1,14 @@
-<div id="doubleBox">
+<div id="sub_nav">
 	<%= render :partial => "user_bar" %>
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
-
-	<div class="contentCMS user">
+</div>
+<div id="content">
+	<h1>Forum</h1>
+	<div class="content_cms">
 		<h2>Editing your account</h2>
 		<% @user.password = @user.password_confirmation = nil %>
-
 		<% form_for :user, :url => user_path(@user), :html => { :method => :put } do |f| -%>
 			<%= render :partial => 'form', :locals=>{ :f => f } %>
 			<p><%= submit_tag 'Update' %></p>
 		<% end -%>
 	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>

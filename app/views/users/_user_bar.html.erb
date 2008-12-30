@@ -1,12 +1,8 @@
-<div id="menuLeft">
-	<%= image_tag 'content/top_menu_rouded.png', :size => "252x15" %>
-	<ul>
-		<%  if logged_in? && current_user %>
-			<li><%= link_to 'List to posts', "/topics" %></li>
-			<li><%= link_to "Logout", logout_path %>
-		<% else %>
-			<li><%= link_to "Login", login_path %></li>
-		<% end %>
-	</ul>
-	<%= image_tag 'content/bottom_menu_rouded.png', :size => "252x15" %>	
-</div>
+<ul>
+	<%  if logged_in? && current_user %>
+		<li><%= link_to 'List to posts', "/topics" %></li>
+		<li><%= link_to "Logout", logout_path %>
+	<% else %>
+		<li><%= link_to "Login", login_path %></li>
+	<% end %>
+</ul>	
