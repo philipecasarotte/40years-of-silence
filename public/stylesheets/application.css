@@ -49,11 +49,11 @@ textarea {height:90px;}
 #sub_nav td.bullet {vertical-align:bottom;}
 #content {float:right; width:689px;}
 
-#sub_nav ul {width:144px;margin-left:60px;}
-#sub_nav li {text-align:left;list-style:none;}
-#sub_nav li a {text-decoration:none;}
-#sub_nav li a:hover {text-decoration:underline;}
-#sub_nav .button {margin:10px 0 10px 70px;width:74px;}
+#sub_nav.forum ul {width:144px;margin-left:60px;}
+#sub_nav.forum li {text-align:left;list-style:none;}
+#sub_nav.forum li a {text-decoration:none;}
+#sub_nav.forum li a:hover {text-decoration:underline;}
+#sub_nav.forum .button {margin:10px 0 10px 70px;width:74px;}
 
 #sub_nav label {text-align:left;padding:5px 0 5px 2px;}
 
