@@ -41,7 +41,7 @@ textarea {height:90px;}
 
 /* Content */
 #container {clear:both; min-height:480px; padding-top:25px;}
-#sub_nav {float:left; width:250px; padding-top:31px; text-align:center;}
+#sub_nav {float:left; width:290px; padding-top:31px; text-align:center;}
 #sub_nav table {margin:-10px 0 0 50px;}
 
 #sub_nav th {vertical-align:top; width:50px; text-align:right;}
@@ -90,19 +90,17 @@ body.home #main {float:left;width:100%;}
 .contact .content_cms li a:hover {text-decoration:underline;}
 
 /*presses*/
-dl.press {float:right;width:690px;}
-dl.press dt {padding:10px 10px 0 0;width:78px;float:left;}
-dl.press dd {border-bottom:solid 1px white;padding:10px 0;}
-dl.press dd strong a{display:block;text-decoration:none;color:#DFA94F;}
+.press ol {list-style:none;}
+.press li {clear:both; padding:10px 0; border-bottom:solid 1px white;}
+.press li img {float:left; margin:0 10px 10px 0;}
+.press h2 a {text-decoration:none; color:#DFA94F; font-size:12px;}
+.press .downloads p {clear:both;}
 
-dl.download {float:right;width:690px;}
-dl.download dt {padding:10px 10px 0 0;width:10px;float:left;margin:0;}
-dl.download dt img {margin-top:-5px;padding:0;}
-dl.download dd {border-bottom:solid 1px white;padding:10px 0;}
-dl.download dd strong a{float:left;display:inline;text-decoration:none;color:#DFA94F;}
+.press .content_cms {margin-bottom:10px;}
+
 
 /*CMS*/
-.content_cms {text-align:justify;}
+.content_cms    {text-align:justify;}
 .content_cms h1 {margin-bottom:5px;font-size:16px;}
 .content_cms h2 {margin-bottom:5px;font-size:15px;}
 .content_cms h3 {margin-bottom:5px; font-size:14px;}

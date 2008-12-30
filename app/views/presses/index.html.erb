@@ -1,29 +1,30 @@
 <% @title = 'Press' %>
-<div class="contentCMS">
+<div id="content" class="press">
 	<h1 style="clear:both;width:690px;float:right;">Presses</h1>
 	<% if @presses.size > 0 %>
-		<dl class="press">
+		<ol>
 			<% @presses.each do |press| %>
-				<dt><%= link_to image_tag(press.cover.url(:thumb)), :action=>'show', :id=>press.id %></dt>
-				<dd>
-					<strong><%= link_to press.title, :action=>'show', :id=>press.id  %></strong>
-					<%= press.body.summary(330) %>
-				</dd>
+				<li>
+					<%= link_to image_tag(press.cover.url(:thumb)), :action=>'show', :id=>press.id unless press.cover.url(:thumb).blank? %>
+					<h2><%= link_to press.title, :action=>'show', :id=>press.id  %></h2>
+					<%= simple_format press.body.summary(330) %>
+				</li>
 			<% end %>
-		<dl>
+		</ol>
 	<% else %>
 		<p>No Press available.</p>
 	<% end %>
 	<h1 style="margin-top:20px;clear:both;width:590px;">Downloads</h1>
 	<% if @downloads.size > 0 %>
-		<dl class="download">
+		<ol class="downloads">
 			<% @downloads.each do |download| %>
-				<dt><%= link_to image_tag('bullets/bullet_pdf.gif'), download.pdf.url %></dt>
-				<dd>
-					<strong><%= link_to download.title, download.pdf.url %></strong>&nbsp;- <%= download.body %>
-				</dd>
+				<li>
+					<%= link_to image_tag('bullets/bullet_pdf.gif'), download.pdf.url %>
+					<h2><%= link_to download.title, download.pdf.url %></h2>
+					<%= simple_format download.body %>
+				</li>
 			<% end %>
-		<dl>
+		</ol>
 	<% else %>
 		<p>No Download available.</p>
 	<% end %>
