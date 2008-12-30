@@ -1,0 +1,23 @@
+<h1>Editing Message</h1>
+
+<%= error_messages_for :message %>
+
+<% form_for(:message, :url => object_url, :html => { :method => :put}) do |f| %>
+	<% unless @message.parent_id %>
+		<p>
+		  <label for="message_title">Title:</label>
+		  <%= f.text_field :title %>
+		</p>
+	<% end %>
+	<p>
+		<label for="message_content">File:</label>
+		<%= f.text_area :content %>
+	</p>
+  <p>
+    <%=submit_tag "Update"%>
+  </p>
+<% end %>
+
+<br/>
+
+<%= link_to 'Back', collection_url %>

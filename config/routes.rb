@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.signup '/signup', :controller => 'users', :action => 'new'
     admin.resources :users
     admin.resources :pages
+    admin.resources :messages, :member => {:approve => :put}
     admin.resource :session
     admin.resources :downloads, :collection=>{ :order=>:post, :reorder=>:get }
     admin.resources :presses, :collection=>{ :order=>:post, :reorder=>:get }

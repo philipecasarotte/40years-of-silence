@@ -15,7 +15,8 @@
 			<%  if logged_in? && current_user %>
 				<p>
 					<%= link_to('Add a reply', new_reply_path(@topic, @message)) %>
-					<%= link_to "Delete", topic_message_path(@topic, @message), :method=>:delete, :confirm=>"Are you sure?" if logged_in? and current_user.administrator? %>
+					<%= link_to "Delete", topic_message_path(@topic, @message), :method=>:delete, :confirm=>"Are you sure?" if 	current_user.administrator? %>
+					<%= link_to "Edit", edit_admin_message_url(@message) if current_user.administrator? %>
 				</p>
 			<% end %>
 
@@ -29,27 +30,30 @@
 			</tr>
 				<td>
 					<% @message.children.by_recency.each_with_index do |message, i| %>
-						<table width="100%">
-						  <tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
-							<th class="name">
-							  <span class="message-title" title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
-							    Posted by <%= h(message.user.login) %> on <%= message.created_at.time.to_formatted_s(:short) %>
-							  </span>
-								<% if current_user.administrator %>
-									<span class="delete">
-										<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
-									</span>
-								<% end %>
-							</th>				
-						  </tr>
-						  <tr>
-						  	<td class="commentText">
-						  		<span>
-						  			<%= simple_format(message.content) %>
-						  		</span>
-						  	</td>
-						  </tr>
-						 </table>
+						<% if message.active %>
+							<table width="100%">
+							  <tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
+								<th class="name">
+								  <span class="message-title" title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
+								    Posted by <%= h(message.user.login) %> on <%= message.created_at.time.to_formatted_s(:short) %>
+								  </span>
+									<% if current_user.administrator %>
+										<span class="delete">
+											<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
+											<%= link_to "Edit", edit_admin_message_url(message) if current_user.administrator? %>
+										</span>
+									<% end %>
+								</th>				
+							  </tr>
+							  <tr>
+							  	<td class="commentText">
+							  		<span>
+							  			<%= simple_format(message.content) %>
+							  		</span>
+							  	</td>
+							  </tr>
+							 </table>
+						<% end %>
 					<% end %>
 				</td>
 			</tr>

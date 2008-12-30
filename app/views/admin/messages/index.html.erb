@@ -1,0 +1,26 @@
+<h1>Listing Pending Messages</h1>
+
+<table>
+  <tr>
+	<th>User</th>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+  <%- @messages.each do |message|%>
+	<tr>
+      <td><%=h message.user.login %></td>
+	  <% if message.title %>
+	  	<td><%=h message.title %></td>
+	  <% else %>
+		<td>Comment for <%=h message.parent.title %></td>
+	  <% end %>
+      <td><%=h message.content.summary 100 %></td>
+      <td><%=link_to 'Approve', approve_admin_message_path(message), :method => :put %></td>
+	  <td><%=link_to 'Edit', edit_object_url(message) %></td>
+      <td><%=link_to 'Destroy', object_url(message), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'New Message', new_object_url %>
