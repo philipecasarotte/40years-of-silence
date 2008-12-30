@@ -1,9 +1,9 @@
-<div id="doubleBox">
+<div id="sub_nav">
 	<%= render :partial => "new" %>
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
-
-	<div class="contentCMS">
-		<h2>Log In</h2>
+</div>
+<div id="content">
+	<h1>Log In</h1>
+	<div class="content_cms">
 		<% form_tag session_path do -%>
 			<p><%= label_tag 'login' %>
 			<%= text_field_tag 'login', @login %></p>
@@ -16,5 +16,4 @@
 		
 		<p><a href="/users/forgot">Forgot your password?</a></p>
 	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>

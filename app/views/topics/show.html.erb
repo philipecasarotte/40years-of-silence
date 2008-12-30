@@ -1,47 +1,25 @@
-<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
-<div id="doubleBox">
+<div id="sub_nav">
 	<%= render :partial => 'messages' %>
-
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
-	<div>
-		<h1>Posts</h1>
-
-		<table cellspacing="0" class="topics_table" width="100%">
-			<tr>
-				<th class="left_text">Posts</th>
-				<th class="left_text">By</th>
-				<th class="right_text"># Replies</th>
-				<th class="right_text">Last Reply</th>
-				<th>&nbsp;</th>
-			</tr>
-				<% @topic.messages.children_of(nil).by_recency.each_with_index do |message, i| %>
-			<tr class="<%= cycle('bgBlack','')%>">
-				<td class="left_text">
-					<%= link_to h(message.title), topic_message_path(@topic, message) %>
-				</td>
-				<td class="left_text">
-					<%= h(message.user.login) %>
-				</td>
-				<td class="counter right_text">
-					<%= message.children.count %>
-				</td>
-				<td class="date-col right_text">
-				<span title="<%= message.last_reply.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
-					<%= time_ago_in_words(message.last_reply.created_at) %> ago
-				</span>
-				</td>
-					<% if logged_in? and current_user.administrator? %>
-				<td>
-					<%= link_to image_tag ('buttons/bot_closeX.gif',:alt => "Close", :title => "Close")+" Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
-				</td>
-				<% end %>
-			</tr>
-			<% end %>
-		</table>
-	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>
-<%= javascript_include_tag 'plugins/flashembed.min', 'page/directors_statements' %>
+<div id="content">
+	<h1>Forum</h1>
+	<div class="content_cms">
+			<% @topic.messages.children_of(nil).by_recency.each_with_index do |message, i| %>
+				<h2 class="titleReply"><%= link_to h(message.title), topic_message_path(@topic, message) %></h2>
+				<blockquote><%= simple_format(message.content) %></blockquote>
+				<% unless message.parent %>
+					<p>Posted by <%= h(message.user.login) %> on <%= message.created_at.time.to_formatted_s(:short) %></p>
+					<%  if logged_in? && current_user %>
+						<p>
+							<%= link_to('Add a reply', new_reply_path(@topic, message)) %>
+							<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" if logged_in? and current_user.administrator? %>
+						</p>
+					<% end %>
+				<% end %>
+			<% end %>
+	</div>
+</div>
 <% content_for :head do -%>
+	<%= javascript_include_tag 'plugins/flashembed.min', 'page/directors_statements' %>
 	<%= javascript_tag "$(function(){set_menu('forum');});" %>
 <% end -%>

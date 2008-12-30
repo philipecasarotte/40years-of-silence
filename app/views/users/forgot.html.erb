@@ -1,7 +1,9 @@
-<div id="doubleBox">
+<div id="sub_nav">
 	<%= render :partial => "user_bar" %>
-	<%= image_tag 'content/top_rouded_double.png', :size => '639x15' %>
-	<div class="contentCMS">
+</div>
+<div id="content">
+	<h1>Forum</h1>
+	<div class="content_cms">
 		<h2>Recovery Password</h2>
 		<% form_for :user, :url => recovery_users_path do |f| -%>
 			<p>
@@ -11,5 +13,4 @@
 			<p><%= submit_tag 'Recovery now!' %></p>
 		<% end -%>
 	</div>
-	<%= image_tag 'content/bottom_rouded_double.png', :size => '639x15' %>
 </div>

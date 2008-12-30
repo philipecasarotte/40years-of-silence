@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   
   # render new.rhtml
   def new
-    @user = Member.new
+    @user = User.new
   end
  
   def create
     logout_keeping_session!
-    @user = Member.new(params[:user])
+    @user = User.new(params[:user])
     success = @user && @user.save
     if success && @user.errors.empty?
             # Protects against session fixation attacks, causes request forgery
@@ -26,11 +26,11 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = Member.find(current_user)
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = Member.find(current_user)
+    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       redirect_back_or_default('/')
     else
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   
   def recovery
     begin
-      @user = Member.find_by_email(params[:user][:email])
+      @user = User.find_by_email(params[:user][:email])
       @user.recovery_password!
       flash[:notice] = "Password successfully changed"
     rescue

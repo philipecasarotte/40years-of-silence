@@ -49,6 +49,14 @@ textarea {height:90px;}
 #sub_nav td.bullet {vertical-align:bottom;}
 #content {float:right; width:689px;}
 
+#sub_nav ul {width:144px;margin-left:60px;}
+#sub_nav li {text-align:left;list-style:none;}
+#sub_nav li a {text-decoration:none;}
+#sub_nav li a:hover {text-decoration:underline;}
+#sub_nav .button {margin:10px 0 10px 70px;width:74px;}
+
+#sub_nav label {text-align:left;padding:5px 0 5px 2px;}
+
 /* home */
 body.home #main {float:left;width:100%;}
 #flash {position:absolute;top:123px;left:161px;width:100px;height:165px;}
@@ -106,3 +114,7 @@ dl.download dd strong a{float:left;display:inline;text-decoration:none;color:#DF
 .content_cms table {clear:both;}
 .content_cms ul,
 .content_cms ol {margin-left:30px;}
+
+/*Forum*/
+.titleReply a {text-decoration:none;color:#DFA94F;}
+.text_message {width:100%;}
