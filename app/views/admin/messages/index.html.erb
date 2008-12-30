@@ -7,7 +7,7 @@
     <th>Description</th>
   </tr>
   <%- @messages.each do |message|%>
-	<tr>
+	<tr <%= 'class="comment"' if message.parent_id.blank? %>>
       <td><%=h message.user.login %></td>
 	  <% if message.title %>
 	  	<td><%=h message.title %></td>

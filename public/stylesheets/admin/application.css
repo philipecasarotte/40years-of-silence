@@ -24,6 +24,7 @@ th, td          {background-color:#F4F4F4; color:#333; padding:5px; text-align:l
 th              {background-color:#393939; color:#FFF; text-align: center; min-width:200px;}
 tr.altrow td    {background-color:#E4E4E4;}
 td.align        {text-align:center;}
+tr.comment td {background-color:#CCC;}
 
 dl              {line-height: 2em;margin: 0em 0em;width: 60%;}
 dl.altrow       {background: #f4f4f4;}
