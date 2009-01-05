@@ -1,0 +1,35 @@
+<%= render(:partial => 'layouts/meta_data', :locals => {:obj => @page}) if @page %>
+<% @title = @page.title %>
+
+<div class="biographies">
+	<div id="sub_nav">
+		<button class="prev">prev</button>
+		<div class="list">
+			<ul>
+				<% @staffs.each do |staff| -%>
+					<li>
+						<p><%= staff.name %></p>
+						<%= link_to_remote image_tag(staff.image(:thumb), :size => "61x81", :title => staff.title),
+																:update => "staff_body",
+																:url => staff_path(staff),
+																:loading=>"$('.loading').show()",
+																:complete=>"$('.loading').hide()" %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<button class="next">next</button>
+
+	</div>
+
+	<div id="content" class="character">
+		<h1><%= @page.title %></h1>
+		<div id="staff_body" class="content_cms">&nbsp;</div>
+	</div>
+	
+</div>
+
+<% content_for :head do	%>
+	<%= javascript_tag "$(function(){set_menu('crew');});" %>
+	<%= javascript_include_tag "plugins/jcarousellite", "page/biographies" %>
+<% end -%>

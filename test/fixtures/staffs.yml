@@ -1,0 +1,12 @@
+one:
+  id: 1
+  name: MyString
+  title: MyString
+  descrption: MyText
+  position: 1
+two:
+  id: 2
+  name: MyString
+  title: MyString
+  descrption: MyText
+  position: 1

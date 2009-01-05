@@ -55,6 +55,12 @@ class PagesController < ApplicationController
     render :action => "character_body", :layout => false
   end
 
+  def biographies
+    @page = Page.find_by_permalink "crew-biographies"
+    @staffs = Staff.all :order => :position
+  end
+
+
   def contact
     if request.post?
       Mailer.deliver_contact(params[:contact])

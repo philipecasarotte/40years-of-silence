@@ -116,3 +116,9 @@ body.home #main {float:left;width:100%;}
 /*Forum*/
 .titleReply a {text-decoration:none;color:#DFA94F;}
 .text_message {width:100%;}
+
+/* biographies */
+.biographies .list li {width:150px; display:table; margin:0 0 0 25px; padding:2px 0;}
+
+.biographies .list li img {float:right;}
+.biographies .list li p {width:80px; text-align:right;float:left; font-weight:bold;}
