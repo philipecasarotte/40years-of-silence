@@ -1,3 +1,13 @@
 <% photo ||= @photos.first %>
 <p><%= image_tag photo.image.url(:big), :alt=>photo.title, :title=>photo.title %></p>
 <p><%= photo.title %></p>
+<p class="nav"><%= link_to_remote image_tag('buttons/arrow_left.gif', :size => "16x20"), 
+											:update=>"big", 
+											:url=>photo_path(photo.id-1),
+											:loading=>"$('.loading').show()",
+											:complete=>"$('.loading').hide()" %>
+<%= link_to_remote image_tag('buttons/arrow_right.gif', :size => "16x20"), 
+											:update=>"big", 
+											:url=>photo_path(photo.id+1),
+											:loading=>"$('.loading').show()",
+											:complete=>"$('.loading').hide()" %></p>

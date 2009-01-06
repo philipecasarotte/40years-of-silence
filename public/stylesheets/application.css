@@ -72,9 +72,12 @@ body.home #main {float:left;width:100%;}
 .transcript #content {float:none; width:auto; padding:0 20px 20px 0;}
 
 /* gallery */
+.gallery {position:relative;}
 .gallery #content {position:relative;}
 .gallery .loading {display:none; position:absolute; top:170px; left:170px;}
-
+.gallery .list li {height:67px;padding:5px 0;margin:0;}
+.gallery #sub_nav {padding-top:10px;}
+.gallery p.nav {position:absolute;top:15px;right:240px;}
 /* contact */
 .contact form{width:377px; float:left; border-right:1px solid #6E2301;}
 .contact label {margin:15px 0 5px;}
