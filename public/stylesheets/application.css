@@ -52,7 +52,7 @@ textarea {height:90px;}
 #sub_nav.forum ul {width:144px;margin-left:60px;}
 #sub_nav.forum li {text-align:left;list-style:none;}
 #sub_nav.forum li a {text-decoration:none;}
-#sub_nav.forum li a:hover {text-decoration:underline;}
+#sub_nav.forum list a:hover {text-decoration:underline;}
 #sub_nav.forum .button {margin:10px 0 10px 95px;}
 
 #sub_nav label {text-align:left;padding:5px 0 5px 2px;}
@@ -72,12 +72,12 @@ body.home #main {float:left;width:100%;}
 .transcript #content {float:none; width:auto; padding:0 20px 20px 0;}
 
 /* gallery */
-.gallery {position:relative;}
 .gallery #content {position:relative;}
-.gallery .loading {display:none; position:absolute; top:170px; left:170px;}
+.gallery .loading {display:none; position:absolute; top:170px; left:150px;}
 .gallery .list li {height:67px;padding:5px 0;margin:0;}
 .gallery #sub_nav {padding-top:10px;}
-.gallery p.nav {position:absolute;top:15px;right:240px;}
+.gallery p.nav {position:absolute;top:15px;right:160px;width:100px;}
+
 /* contact */
 .contact form{width:377px; float:left; border-right:1px solid #6E2301;}
 .contact label {margin:15px 0 5px;}
