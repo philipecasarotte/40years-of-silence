@@ -1,9 +1,32 @@
 $(function() { 
 	$("#sub_nav td a").click(function() {
 		$(".content_cms").empty();
-		$.get("/page/body/"+$(this).attr("href").replace("#", ""), function(text){
+		var permalink = $(this).attr("href").replace("#", "");
+		show_video(permalink.replace("-", "_"));
+		$.get("/page/body/"+permalink, function(text){
 		 $(".content_cms").html(text);
 		});
 		return false;
 	});
 });
+
+function show_video (name) {
+	$('#videoPlayer').flashembed(
+	{
+	  src: '/swf/player.swf',
+	  width: 700,
+	  height: 467
+	},
+	{
+	  config: {
+	    videoFile: '/flv/' + name + '.flv',
+	    controlBarBackground: 0x000000,
+	    initialScale: 'fill',
+	    initialVolumePercentage: 100,
+	    loop: false,
+	    menuItems: [true, true, true, true, true, false],
+	    autoPlay: true,
+	    autoBuffering: true
+	  }
+	});
+}
