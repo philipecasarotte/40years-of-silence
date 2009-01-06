@@ -4,7 +4,7 @@ $(function() {
 		height: 20, 
 		width: 250,
 		flashvars: {
-			file: 'files/profile_voices/voice/origin.mp3',
+			file: '/mp3/movietrack.mp3',
 			displayheight:20,
 			autostart:'false',
 			smoothing:'true',
