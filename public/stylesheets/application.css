@@ -53,7 +53,7 @@ textarea {height:90px;}
 #sub_nav.forum li {text-align:left;list-style:none;}
 #sub_nav.forum li a {text-decoration:none;}
 #sub_nav.forum li a:hover {text-decoration:underline;}
-#sub_nav.forum .button {margin:10px 0 10px 70px;width:74px;}
+#sub_nav.forum .button {margin:10px 0 10px 95px;}
 
 #sub_nav label {text-align:left;padding:5px 0 5px 2px;}
 
@@ -85,13 +85,13 @@ body.home #main {float:left;width:100%;}
 .contact label.error {color:red; font-weight:normal; margin:0;}
 
 .contact .content_cms {float:right;width:305px;}
-.contact .content_cms li {list-style-image:url(../images/bullets/fire.png); margin-bottom:15px; color:#958367;}
-.contact .content_cms li a {color:#958367; text-decoration:none;}
+.contact .content_cms li {margin-bottom:15px; color:white;}
+.contact .content_cms li a {color:white; text-decoration:none;}
 .contact .content_cms li a:hover {text-decoration:underline;}
 
 /*presses*/
 .press ol {list-style:none;}
-.press li {clear:both; padding:10px 0; border-bottom:solid 1px white;}
+.press li {clear:both; padding:10px 0;}
 .press li img {float:left; margin:0 10px 10px 0;}
 .press h2 a {text-decoration:none; color:#DFA94F; font-size:12px;}
 .press .downloads p {clear:both;}
@@ -122,3 +122,8 @@ body.home #main {float:left;width:100%;}
 
 .biographies .list li img {float:right;}
 .biographies .list li p {width:80px; text-align:right;float:left; font-weight:bold;}
+
+.prev,
+.next {cursor:pointer;}
+
+.button {padding:3px 5px;background-color:black;color:white;font-size:12px;}

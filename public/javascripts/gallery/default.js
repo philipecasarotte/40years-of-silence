@@ -4,6 +4,7 @@ $(document).ready(function(){
 		btnNext: ".next",
 		btnPrev: ".prev",
 		vertical: true,
-		visible: 5
+		visible: 5,
+		scroll: 5
 	});	
 });

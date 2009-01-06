@@ -3,7 +3,7 @@
 
 <div class="biographies">
 	<div id="sub_nav">
-		<button class="prev">prev</button>
+		<%= image_tag 'buttons/arrow_up.gif', :class => 'prev' %>
 		<div class="list">
 			<ul>
 				<% @staffs.each do |staff| -%>
@@ -18,7 +18,7 @@
 				<% end %>
 			</ul>
 		</div>
-		<button class="next">next</button>
+		<%= image_tag 'buttons/arrow_down.gif', :class => 'next' %>
 
 	</div>
 
