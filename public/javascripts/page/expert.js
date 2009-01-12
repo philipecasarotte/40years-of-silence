@@ -8,14 +8,33 @@ $(function() {
 		});
 		return false;
 	});
+	
+	$('#videoPlayer').flashembed(
+	{
+	  src: '/swf/player.swf',
+	  width: 648,
+	  height: 480
+	},
+	{
+	  config: {
+	    videoFile: '/flv/historian_selects2.flv',
+	    controlBarBackground: 0x000000,
+	    initialScale: 'fill',
+	    initialVolumePercentage: 100,
+	    loop: false,
+	    menuItems: [true, true, true, true, true, false],
+	    autoPlay: true,
+	    autoBuffering: true
+	  }
+	});
 });
 
 function show_video (name) {
 	$('#videoPlayer').flashembed(
 	{
 	  src: '/swf/player.swf',
-	  width: 700,
-	  height: 467
+	  width: 648,
+	  height: 480
 	},
 	{
 	  config: {
