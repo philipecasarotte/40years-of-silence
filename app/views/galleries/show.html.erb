@@ -4,7 +4,7 @@
 		<div class="list">
 			<ul>
 				<% @photos.each do |photo| %>
-					<li><%= link_to_remote image_tag(photo.image.url(:thumb), :size => "61x81"), 
+					<li><%= link_to_remote image_tag(photo.image.url(:thumb), :size => "81x61"), 
 																:update=>"big", 
 																:url=>photo_path(photo),
 																:loading=>"$('.loading').show()",

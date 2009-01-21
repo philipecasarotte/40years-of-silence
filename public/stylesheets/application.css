@@ -31,7 +31,7 @@ textarea {height:90px;}
 #menu .selected li a {color:#ccc;}
 #menu .selected li a:hover {color:#DFA94F;}
 #menu .hover,
-#menu .hover ul {background:URL(../images/background/transparent.png);}
+#menu .hover ul {background:black;}
 #menu .hover li {background:none;}
 
 /* Footer */
