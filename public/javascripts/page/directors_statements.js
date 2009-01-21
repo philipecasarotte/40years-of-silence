@@ -12,7 +12,7 @@ $(function() {
       initialVolumePercentage: 100,
       loop: false,
       menuItems: [true, true, true, true, true, false],
-      autoPlay: false,
+      autoPlay: true,
       autoBuffering: true,
     }
   })
