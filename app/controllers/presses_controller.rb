@@ -5,6 +5,10 @@ class PressesController < ApplicationController
   end
   
   def show
-    @press = Press.find(params[:id])
+    begin
+      @press = Press.find(params[:id])
+    rescue
+      redirect_to :action => "index"
+    end
   end
 end
