@@ -5,7 +5,7 @@ old_verbose = $VERBOSE
 $VERBOSE = nil
 
 SITE_NAME = '40 Years of Silence | Elemental Productions'
-SITE_DOMAIN = '40yearsofsilenece.com'
+SITE_DOMAIN = '40yearsofsilence.com'
 SITE_URL = "http://www.#{SITE_DOMAIN}/"
 SITE_EMAIL = "contact@#{SITE_DOMAIN}"
 SITE_META_KEYWORDS = ""

@@ -19,6 +19,45 @@
 						<% end %>
 					<% end %>
 				<% end %>
+				<% unless message.parent %>
+				<% if message.children.size > 0 %>
+				  <table id="replies" cellspacing="0" class="replies_table" width="100%">
+					<tr>
+					  <th class="left_text"><h1>Replies</h1></th>
+					</tr>
+					</tr>
+						<td>
+							<% message.children.by_recency.each_with_index do |message, i| %>
+								<% if message.active %>
+									<table width="100%">
+									  <tr class="<%= i%2 == 1 ? 'even' : 'odd' %>">
+										<th class="name">
+										  <span class="message-title" title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
+										    Posted by <%= h(message.user.login) %> on <%= message.created_at.time.to_formatted_s(:short) %>
+										  </span>
+											<% if current_user.administrator %>
+												<span class="delete">
+													<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
+													<%= link_to "Edit", edit_admin_message_url(message) if current_user.administrator? %>
+												</span>
+											<% end %>
+										</th>				
+									  </tr>
+									  <tr>
+									  	<td class="commentText">
+									  		<span>
+									  			<%= simple_format(message.content) %>
+									  		</span>
+									  	</td>
+									  </tr>
+									 </table>
+								<% end %>
+							<% end %>
+						</td>
+					</tr>
+				  </table>
+				<% end %>
+				<% end %>
 			<% end %>
 	</div>
 </div>

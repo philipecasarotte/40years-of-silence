@@ -2,7 +2,7 @@
 
 <p>Your password was changed to <%= @password %>.</p>
 
-<p>Please, login in <a href="http://40years.local/login">http://40years.local/login</a> and modify your password at <a href="http://40years.local/users/<%= @user.id%>/edit">http://40years.local/users/<%= @user.id%>/edit</a>.</p>
+<p>Please, login in <a href=<%= "#{SITE_URL}/login" %>><%= SITE_URL %>/login</a> and modify your password at <a href=<%= "#{SITE_URL}/users/#{@user.id}/edit" %>><%= "#{SITE_URL}/users/#{@user.id}/edit" %></a>.</p>
 
 <p>Regards,<br />
 	Elemental Productions Team</p>
