@@ -1,7 +1,7 @@
 * {margin:0; padding:0; outline:none;}
 a img{border:none;}
 
-body {height:100%; background:black url(../images/back_body.jpg) left top no-repeat; color:white; margin:30px 0 0 30px; font:12px Arial, Verdana, Tahoma, sans-serif;}
+body {height:100%; background:black url(../images/back_body.jpg) left top no-repeat; color:white; margin:30px 0 0 30px; font:14px Arial, Verdana, Tahoma, sans-serif;}
 body.home {margin:0; background:black;}
 
 a {color:white;}
