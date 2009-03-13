@@ -37,7 +37,7 @@
 								  <span class="message-title" title="<%= message.created_at.strftime('%d %b %Y %H:%M %p %Z')%>">
 								    Posted by <%= h(message.user.login) %> on <%= message.created_at.time.to_formatted_s(:short) %>
 								  </span>
-									<% if current_user.administrator %>
+									<% if current_user.administrator? %>
 										<span class="delete">
 											<%= link_to "Delete", topic_message_path(@topic, message), :method=>:delete, :confirm=>"Are you sure?" %>
 											<%= link_to "Edit", edit_admin_message_url(message) if current_user.administrator? %>
