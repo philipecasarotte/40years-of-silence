@@ -3,11 +3,11 @@
 <p><%= photo.title %></p>
 <p class="nav"><%= link_to_remote image_tag('buttons/arrow_left.gif', :size => "16x20"), 
 											:update=>"big", 
-											:url=>photo_path(Photo.first(:conditions => {:position => photo.position-1, :album_id => photo.album_id})),
+											:url=>photo_path(Photo.first(:conditions => {:position => photo.position-1 || "0", :album_id => photo.album_id})),
 											:loading=>"$('.loading').show()",
 											:complete=>"$('.loading').hide()" %>
 <%= link_to_remote image_tag('buttons/arrow_right.gif', :size => "16x20"), 
 											:update=>"big", 
-											:url=>photo_path(Photo.first(:conditions => {:position => photo.position+1, :album_id => photo.album_id})),
+											:url=>photo_path(Photo.first(:conditions => {:position => photo.position+1 || "0", :album_id => photo.album_id})),
 											:loading=>"$('.loading').show()",
 											:complete=>"$('.loading').hide()" %></p>
