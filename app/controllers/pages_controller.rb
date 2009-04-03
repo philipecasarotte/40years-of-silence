@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
 
   def show
+    
     @page = Page.find_by_permalink(params[:permalink])
 
     func = params[:permalink].gsub('-','_')

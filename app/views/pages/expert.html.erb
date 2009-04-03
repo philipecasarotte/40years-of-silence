@@ -3,7 +3,7 @@
 <div id="sub_nav">
 	<table cellspacing="10">
 		<tbody>
-			<% @page.children.each do |page| -%>
+			<% @page.children.sort_by(&:id).each do |page| -%>
 				<tr>
 					<th><%= page.title %></th>
 					<td><a href="#<%= page.permalink %>"><%= image_tag "characters/#{page.permalink}.jpg", :size => "61x81", :title => page.title %></a></td>
