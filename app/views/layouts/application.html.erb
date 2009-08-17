@@ -39,9 +39,9 @@
 		<li>
 			<%= link_to "Gallery", gallery_path(:permalink => "characters"), :id => "menu_gallery" %>
 			<ul>
-				<li><%= link_to "Characters", gallery_path(:permalink => "characters") %></li>
-				<li><%= link_to "Indonesia", gallery_path(:permalink => "indonesia") %></li>
-				<li><%= link_to "Production Stills", gallery_path(:permalink => "crew") %></li>
+			<% @galleries_list.each do |gallery| %>  
+				<li><%= link_to gallery.title, gallery_path(:permalink => gallery.permalink) %></li>
+			<% end %>
 			</ul>
 		</li>
 		<li>

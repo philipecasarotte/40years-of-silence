@@ -3,7 +3,8 @@ $(function() {
 	{
 	  src: '/swf/player.swf',
 	  width: 470,
-	  height: 384
+	  height: 384,
+		wmode: "transparent"
 	},
 	{
 	  config: {

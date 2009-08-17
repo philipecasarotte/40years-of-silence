@@ -17,7 +17,8 @@ function show_video (name) {
 	{
 	  src: '/swf/player.swf',
 	  width: 648,
-	  height: 460
+	  height: 460,
+		wmode: "transparent"
 	},
 	{
 	  config: {

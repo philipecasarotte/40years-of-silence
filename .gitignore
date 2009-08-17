@@ -7,6 +7,8 @@ coverage
 doc/app/*
 schema.rb
 public/uploads/*
+public/Images
+public/Images/*
 nbproject
 db/migrate/*create_file_attributes.rb
 tmp/**/*

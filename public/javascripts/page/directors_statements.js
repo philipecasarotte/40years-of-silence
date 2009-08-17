@@ -2,7 +2,8 @@ $(function() {
   $('#videoPlayer').flashembed({
     src: '/swf/player.swf',
     width: 594,
-    height: 334+28
+    height: 334+28,
+		wmode: "transparent"
   }, {
     config: {
       videoFile: '/flv/directors_statements.flv',
