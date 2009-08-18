@@ -2,8 +2,8 @@ $(function() {
 	$('#videoPlayer').flashembed(
 	{
 	  src: '/swf/player.swf',
-	  width: 470,
-	  height: 384,
+	  width: 648,
+	  height: 460,
 		wmode: "transparent"
 	},
 	{

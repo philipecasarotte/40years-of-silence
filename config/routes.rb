@@ -10,13 +10,14 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   
   map.resources :downloads
-  map.resources :presses
+  map.resources :presses, :as => :press
   map.resources :users, :collection=>{ :forgot=>:get, :recovery=>:post }
   
   map.resources :photos
   map.resource :session
 
   map.gallery '/gallery/:permalink', :controller => 'galleries', :action => 'show'
+  map.page '/page/quote', :controller => 'pages', :action => 'quote'
   map.page '/page/crew-biographies', :controller => 'pages', :action => 'biographies'
   map.page '/page/body/:permalink', :controller => 'pages', :action => 'body'
   map.page '/page/:permalink', :controller => 'pages', :action => 'show'
@@ -36,7 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :messages, :member => {:approve => :put}
     admin.resource :session
     admin.resources :downloads, :collection=>{ :order=>:post, :reorder=>:get }
-    admin.resources :presses, :collection=>{ :order=>:post, :reorder=>:get }
+    admin.resources :presses, :as => :press, :collection=>{ :order=>:post, :reorder=>:get }
     admin.resources :albums, :collection=>{ :order=>:post, :reorder=>:get } do |albums|
       albums.resources :photos, :collection=>{ :order=>:post, :reorder=>:get }
     end

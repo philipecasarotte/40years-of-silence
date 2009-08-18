@@ -3,8 +3,8 @@
   <%= f.text_field :title %>
 </p>
 <p>
-  <label for="press_body">Description:</label>
-  <%= f.text_area :body %>
+  <label for="page_body">Description:</label>
+  <%= fckeditor_textarea 'press', 'body', :height => '300px' %>
 </p>
 <p>
 	<label for="press_cover">Cover:</label>

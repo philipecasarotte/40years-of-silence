@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   # Place here the permalinks of pages that will have custom processing
   # Then, define the function in this class
   # (for permalink 'tell-a-friend', define function 'tell_a_friend')
-  CUSTOM_ACTIONS = %w(contact)
+  CUSTOM_ACTIONS = %w(contact, quote)
 
 
   def show
@@ -61,6 +61,11 @@ class PagesController < ApplicationController
     @staffs = Staff.all :order => :position
   end
 
+  def quote
+    @page = Page.find_by_permalink(params[:action])
+    @page.body = @page.body.summary 500
+    send_data @page.to_xml, :filename => "quote.xml" 
+  end
 
   def contact
     if request.post?
