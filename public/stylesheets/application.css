@@ -34,6 +34,8 @@ textarea {height:90px;}
 #menu .hover ul {background:black;}
 #menu .hover li {background:none;}
 
+#facebook_bt {float:right;margin:-70px 10px 0 0;}
+
 /* Footer */
 #footer,
 #footer a {font-size:10px; color:#72450E; text-align:center; padding-top:10px; text-decoration:none; clear:both; margin:20px 0;}
