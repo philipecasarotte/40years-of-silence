@@ -1,0 +1,10 @@
+production:
+  adapter: mysql
+  encoding: utf8
+  database: yeeie_site
+  username: yeeie_site
+  password: CWLD8S3VXrA5
+  host: localhost
+
+development:
+  production
