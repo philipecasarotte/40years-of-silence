@@ -1,0 +1,8 @@
+RailsBaseURI /
+PassengerAppRoot /home/yeeie/current
+
+ExpiresActive On
+ExpiresDefault "access plus 10 days"
+ExpiresByType text/html "access plus 10 minutes"
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/javascript text/css
