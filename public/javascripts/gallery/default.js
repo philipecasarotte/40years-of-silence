@@ -4,7 +4,8 @@ $(document).ready(function(){
 		btnNext: ".next",
 		btnPrev: ".prev",
 		vertical: true,
-		visible: 5,
-		scroll: 5
+		visible: 4,
+		scroll: 1,
+		circular: false
 	});	
 });

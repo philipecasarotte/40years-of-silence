@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :photos
   map.resource :session
 
-  map.gallery '/gallery/:permalink', :controller => 'galleries', :action => 'show'
+  map.resources :galleries
   map.page '/page/quote', :controller => 'pages', :action => 'quote'
   map.page '/page/crew-biographies', :controller => 'pages', :action => 'biographies'
   map.page '/page/body/:permalink', :controller => 'pages', :action => 'body'

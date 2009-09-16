@@ -1,14 +1,13 @@
 <div class="gallery">
 	<div id="sub_nav">
 		<%= image_tag 'buttons/arrow_up.gif', :class => 'prev' %>
-		<div class="list">
+		<div class="list gallery_list">
 			<ul>
-				<% @photos.each do |photo| %>
-					<li><%= link_to_remote image_tag(photo.image.url(:thumb), :size => "81x61"), 
-																:update=>"big", 
-																:url=>photo_path(photo),
-																:loading=>"$('.loading').show()",
-																:complete=>"$('.loading').hide()" %></li>
+				<% @galleries.each do |gallery| %>
+					<li>
+				    <p><%= gallery.title %></p>
+					  <%= link_to image_tag(gallery.photos.first.image.url(:thumb), :size => "81x61"), gallery_path(gallery.permalink) %>
+					</li>
 				<% end %>
 			</ul>
 		</div>

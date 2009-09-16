@@ -35,14 +35,14 @@
 				<li><%= link_to "Crew Biographies", page_path(:permalink => "crew-biographies") %></li>
 			</ul>
 		</li>
-		<li><%= link_to "Forum", '/topics', :id => "menu_forum" %></li>
+		<li><%= link_to "Forum", 'http://forum.40yearsofsilence.com', :target => "_blank", :id => "menu_forum" %></li>
 		<li>
-			<%= link_to "Gallery", gallery_path(:permalink => "characters"), :id => "menu_gallery" %>
-			<ul>
-			<% @galleries_list.each do |gallery| %>  
-				<li><%= link_to gallery.title, gallery_path(:permalink => gallery.permalink) %></li>
-			<% end %>
-			</ul>
+			<%= link_to "Gallery", galleries_path, :id => "menu_gallery" %>
+      <!-- <ul>
+      <% @galleries_list.each do |gallery| %>  
+        <li><%= link_to gallery.title, gallery_path(gallery.permalink) %></li>
+      <% end %>
+      </ul> -->
 		</li>
 		<li>
 			<%= link_to "Resources", page_path(:permalink => "indonesian"), :id => "menu_resources" %>
