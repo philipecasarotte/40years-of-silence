@@ -35,6 +35,8 @@ textarea {height:90px;}
 #menu .hover li {background:none;}
 
 #facebook_bt {float:right;margin:-70px 10px 0 0;}
+#youtube_bt {float:right;margin:-70px 71px 0 0;}
+#twitter_bt {float:right;margin:-70px 40px 0 0;}
 
 /* Footer */
 #footer,

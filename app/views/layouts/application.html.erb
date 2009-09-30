@@ -58,6 +58,8 @@
 		<li><%= link_to "Screening", page_path(:permalink => "screening"), :id => "menu_screening" %></li>
 		<li><%= link_to "Contact", page_path(:permalink => "contact"), :id => "menu_contact" %></li>
 	</ul>
+	<%= link_to image_tag("youtube.png", :size => "25x25", :alt => "YouTube", :title => "YouTube", :id => "youtube_bt"), "http://www.youtube.com/user/40YearsOfSilence", :target => "blank" %>
+	<%= link_to image_tag("twitter.png", :size => "25x25", :alt => "Twitter", :title => "Twitter", :id => "twitter_bt"), "http://twitter.com/40yos", :target => "blank" %>
 	<%= link_to image_tag("facebook.png", :size => "25x25", :alt => "Facebook", :title => "Facebook", :id => "facebook_bt"), "http://www.facebook.com/pages/40-Years-of-Silence-An-Indonesian-Tragedy/71123631029", :target => "blank" %>
 	<div id="container">
 		<%= yield %>
