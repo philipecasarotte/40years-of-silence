@@ -83,7 +83,7 @@ body.home #main {float:left;width:100%;}
 .gallery .list li p {font-weight:bold;float:left;width:90px;text-align:right;}
 .gallery #sub_nav {padding-top:10px;}
 .gallery p.nav {position:absolute;top:15px;right:160px;width:100px;}
-.gallery p.caption {position:absolute;top:60px;right:0px;width:190px;overflow:hidden;}
+.gallery p.caption {position:absolute;top:60px;right:0px;width:190px;overflow:hidden;text-align:left;}
 
 /* contact */
 .contact form{width:377px; float:left; border-right:1px solid #6E2301;}

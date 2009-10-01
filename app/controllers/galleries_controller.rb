@@ -9,7 +9,7 @@ class GalleriesController < ApplicationController
   end
   
   def show
-    @galleries = Album.with_images
+    @galleries = Album.all
     @gallery = Album.find_by_permalink(params[:id])
     @photos = @gallery.photos.all(:order => "position ASC, id DESC")
   end
