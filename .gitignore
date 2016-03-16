@@ -21,3 +21,5 @@ public/covers/*
 **/Thumbs.db
 .git
 public/flv/*
+deploy
+deploy/*
